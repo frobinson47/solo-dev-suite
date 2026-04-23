@@ -1,0 +1,57 @@
+<!--
+  design-loop version: {{data_version}}
+  generated: {{generated_at}}
+-->
+# Design Loop: {{project_name}}
+
+MISSION: Evolve **{{project_name}}** ({{project_type}}) from its current state into a distinctive, polished, professional product. {{artifact_note}}
+
+## Reference aesthetic (study, don't copy)
+
+{{references}}
+
+Study how these products make decisions — type, color, density, motion, empty states, errors. Don't clone any one of them. The goal is a coherent direction for {{project_name}} that sits comfortably alongside them.
+
+## Per-loop deliverables
+
+Every loop must produce **at least one** of the following, filed under `./design-exploration/loop-{n}/`:
+
+1. Single-file HTML/CSS mockup of a specific screen or component
+2. Design tokens file (colors, type scale, spacing, shadows, motion)
+3. "Current vs proposed" `.md` for one pattern, with rationale
+4. Component inventory / IA proposal
+5. Novel interaction sketch (can be prose + ASCII + CSS)
+
+Each loop also gets a short `README.md` stating: what direction this loop took, why, and what it rejected from earlier loops.
+
+## Exploration dimensions
+
+Pick 1–2 per loop and go deep. Don't sample every dimension shallowly.
+
+{{dimensions_for_project_type}}
+
+## Detected stack constraints (respect these)
+
+- **Framework:** {{ui_framework}}
+- **Style system:** {{style_system}}
+- **Existing components at:** {{component_dirs}}
+{{domain_hints_block}}
+
+## General constraints
+
+- Dark mode default unless the project's domain clearly suggests otherwise
+- Accessibility non-negotiable — contrast, focus states, keyboard navigation
+- Must work at {{min_viewport}} minimum
+- No generic "Material 3" / "default Tailwind" looks — make an opinionated choice
+
+## Iteration rules
+
+- Each loop builds on or deliberately rejects prior loops
+- By loop {{loop_count}}, I want **convergence**, not {{loop_count}} unrelated directions
+- Final loop MUST produce:
+  - `manifesto.md` — the principles that emerged from the exploration
+  - Hero mockup of **{{hero_screen}}** so I can directly compare it to the current state
+
+## How to run
+
+Run this prompt via `{{runner}} {{duration}}` for {{loop_count}} loops. Between loops, read prior loop READMEs before starting the next one — the exploration is cumulative, not parallel.

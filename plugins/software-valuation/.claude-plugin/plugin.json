@@ -1,0 +1,10 @@
+{
+  "name": "software-valuation",
+  "description": "Analyzes software products and generates comprehensive pricing, monetization, and go-to-market strategy reports",
+  "version": "1.0.0",
+  "author": {
+    "name": "Frank Robinson"
+  },
+  "license": "MIT",
+  "keywords": ["pricing", "valuation", "monetization", "marketing", "strategy", "saas"]
+}

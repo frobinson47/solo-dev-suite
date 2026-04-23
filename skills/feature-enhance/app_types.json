@@ -1,0 +1,160 @@
+{
+  "_version": "2026.04",
+  "_description": "Maps detected project domains to known comparable apps for competitive research.",
+
+  "saas-dashboard": {
+    "comparables": ["Linear", "Notion", "Retool", "Grafana", "Datadog", "Metabase", "Mixpanel", "Amplitude"],
+    "feature_categories": ["Analytics", "Reporting", "User Management", "Permissions/RBAC", "Notifications", "Exports", "API Access", "Audit Logs", "Billing", "Onboarding", "Dark Mode", "Keyboard Shortcuts"],
+    "search_queries": ["best SaaS dashboard features 2025", "modern SaaS dashboard UX patterns", "SaaS product feature checklist"]
+  },
+
+  "sports-pool": {
+    "comparables": ["ESPN Fantasy", "Yahoo Sports", "Sleeper", "DraftKings Pools", "Betonline Pools", "OfficePoolStop", "PoolGenius", "MyFantasyLeague"],
+    "feature_categories": ["Pick Entry UX", "Standings/Leaderboards", "Tiebreaker System", "Commissioner Tools", "Notifications/Reminders", "Mobile App", "Live Score Updates", "Payment/Dues Collection", "Social/Chat", "Historical Stats", "Survivor Mode", "Confidence Points"],
+    "search_queries": ["sports pick em pool platform features 2025", "best fantasy sports pool software features", "sports pool SaaS competitors"]
+  },
+
+  "fantasy-sports": {
+    "comparables": ["ESPN Fantasy", "Yahoo Fantasy", "Sleeper", "Underdog Fantasy", "DraftKings", "FanDuel", "CBS Sports Fantasy"],
+    "feature_categories": ["Draft Tools", "Trade System", "Waiver Wire", "Scoring Customization", "Live Scoring", "Chat/Trash Talk", "Mobile App", "AI Draft Assistant", "Keeper Leagues", "Dynasty Leagues"],
+    "search_queries": ["fantasy sports app features 2025", "best fantasy football platform features", "fantasy sports platform trends"]
+  },
+
+  "ecommerce": {
+    "comparables": ["Shopify", "WooCommerce", "BigCommerce", "Squarespace Commerce", "Wix eCommerce", "Swell", "Medusa.js"],
+    "feature_categories": ["Product Variants", "Inventory Management", "Abandoned Cart", "Discount Engine", "Reviews/Ratings", "Upsell/Cross-sell", "Subscriptions", "Gift Cards", "Multi-currency", "Mobile Checkout"],
+    "search_queries": ["ecommerce platform features checklist 2025", "best ecommerce UX features", "ecommerce conversion optimization features"]
+  },
+
+  "saas-dashboard,admin-portal": {
+    "comparables": ["Refine", "AdminJS", "React-Admin", "Forest Admin", "Retool", "Appsmith"],
+    "feature_categories": ["CRUD Interface", "Bulk Actions", "Advanced Filters", "Role-Based Access", "Audit Trail", "Import/Export", "Custom Actions", "Webhooks"],
+    "search_queries": ["admin panel best features 2025", "internal tools platform features", "admin dashboard UX patterns"]
+  },
+
+  "admin-portal": {
+    "comparables": ["Refine", "AdminJS", "React-Admin", "Forest Admin", "Retool", "Appsmith"],
+    "feature_categories": ["CRUD Interface", "Bulk Actions", "Advanced Filters", "Role-Based Access", "Audit Trail", "Import/Export", "Custom Actions", "Webhooks"],
+    "search_queries": ["admin panel best features 2025", "internal tools platform features"]
+  },
+
+  "ops-dashboard": {
+    "comparables": ["Grafana", "Datadog", "New Relic", "Checkmk", "Zabbix", "PagerDuty", "OpsGenie", "Portainer"],
+    "feature_categories": ["Real-time Metrics", "Alerting/Paging", "Log Aggregation", "Incident Management", "Status Pages", "SLA Tracking", "Runbooks", "Health Checks"],
+    "search_queries": ["ops monitoring dashboard features 2025", "DevOps dashboard best features", "internal ops platform design"]
+  },
+
+  "monitoring-dashboard": {
+    "comparables": ["Grafana", "Datadog", "Prometheus UI", "Netdata", "Uptimerobot", "Freshping"],
+    "feature_categories": ["Real-time Charts", "Alerting Rules", "Anomaly Detection", "Multi-host View", "Historical Trends", "Export/Reports"],
+    "search_queries": ["monitoring dashboard features 2025", "server monitoring UI best practices"]
+  },
+
+  "music-app": {
+    "comparables": ["Spotify", "Apple Music", "Tidal", "Bandcamp", "SoundCloud", "Audius", "Navidrome"],
+    "feature_categories": ["Playback Controls", "Playlists", "Queue Management", "Search/Discovery", "Artist Pages", "Lyrics Display", "Equalizer", "Download/Offline", "Social Sharing", "Recommendations"],
+    "search_queries": ["music streaming app features 2025", "music app UX patterns", "self-hosted music platform features"]
+  },
+
+  "blog-cms": {
+    "comparables": ["WordPress", "Ghost", "Substack", "Hashnode", "Contentful", "Sanity", "Payload CMS"],
+    "feature_categories": ["Rich Text Editor", "SEO Tools", "Scheduling", "Tags/Categories", "Comments", "Newsletter", "Analytics", "Custom Fields", "Media Library", "Multi-author"],
+    "search_queries": ["CMS platform features 2025", "headless CMS feature comparison", "blog platform UX features"]
+  },
+
+  "chat-messaging": {
+    "comparables": ["Slack", "Discord", "Matrix/Element", "Mattermost", "Rocket.Chat", "Zulip"],
+    "feature_categories": ["Real-time Messaging", "Threads", "Reactions/Emoji", "File Sharing", "Search", "Voice/Video", "Bots/Integrations", "Read Receipts", "Notifications", "Channels/DMs"],
+    "search_queries": ["chat app features 2025", "messaging platform UX patterns", "open source chat features"]
+  },
+
+  "crm": {
+    "comparables": ["HubSpot", "Salesforce", "Pipedrive", "Zoho CRM", "Monday CRM", "Attio", "Twenty"],
+    "feature_categories": ["Contact Management", "Pipeline/Deals", "Email Integration", "Task Tracking", "Reports", "Lead Scoring", "Automations", "Activity Timeline", "Notes", "Import/Export"],
+    "search_queries": ["CRM software features 2025", "modern CRM UX patterns", "open source CRM features"]
+  },
+
+  "fintech": {
+    "comparables": ["Plaid", "Stripe Dashboard", "Brex", "Mercury", "Wise Business", "QuickBooks", "Wave"],
+    "feature_categories": ["Transaction History", "Invoicing", "Expense Tracking", "Reports/P&L", "Multi-currency", "Recurring Billing", "Reconciliation", "Audit Logs", "2FA", "API Webhooks"],
+    "search_queries": ["fintech app features 2025", "financial dashboard UX patterns", "payment platform features"]
+  },
+
+  "healthtech": {
+    "comparables": ["Epic MyChart", "Athenahealth", "SimplePractice", "TherapyNotes", "Kareo"],
+    "feature_categories": ["Patient Records", "Appointment Scheduling", "Billing/Insurance", "Telehealth", "Prescription", "Lab Results", "Notifications", "HIPAA Compliance"],
+    "search_queries": ["healthcare platform features 2025", "EHR software features list", "healthtech SaaS features"]
+  },
+
+  "edtech": {
+    "comparables": ["Canvas", "Moodle", "Teachable", "Kajabi", "Thinkific", "Coursera", "Duolingo"],
+    "feature_categories": ["Course Builder", "Video Lessons", "Quizzes/Assessments", "Progress Tracking", "Certificates", "Discussion Forums", "Live Sessions", "Gamification", "Parent/Student Views"],
+    "search_queries": ["edtech platform features 2025", "LMS features checklist", "online learning platform UX"]
+  },
+
+  "booking-platform": {
+    "comparables": ["Calendly", "Acuity", "Cal.com", "SimplyBook.me", "Square Appointments", "Booksy"],
+    "feature_categories": ["Calendar Integration", "Time Zone Handling", "Reminders/SMS", "Group Bookings", "Recurring Events", "Payments", "Buffer Times", "Custom Questions", "Team Booking"],
+    "search_queries": ["booking platform features 2025", "appointment scheduling app UX patterns"]
+  },
+
+  "scheduling-app": {
+    "comparables": ["Calendly", "Cal.com", "When2meet", "Doodle", "Microsoft Bookings"],
+    "feature_categories": ["Availability Rules", "Multi-timezone", "Group Polls", "Calendar Sync", "Buffer Time", "Notifications", "Embed Widget"],
+    "search_queries": ["scheduling app features 2025", "meeting scheduler UX best practices"]
+  },
+
+  "social-platform": {
+    "comparables": ["Twitter/X", "Mastodon", "Bluesky", "Reddit", "Discord", "Lemmy"],
+    "feature_categories": ["Feed/Timeline", "Follow/Friends", "Reactions", "Comments", "DMs", "Hashtags", "Search", "Notifications", "Trending", "Media Upload", "Moderation"],
+    "search_queries": ["social platform features 2025", "federated social media features", "community platform UX patterns"]
+  },
+
+  "analytics-platform": {
+    "comparables": ["Google Analytics 4", "Plausible", "PostHog", "Mixpanel", "Amplitude", "Heap"],
+    "feature_categories": ["Event Tracking", "Funnels", "Cohorts", "Dashboards", "Real-time View", "Session Recording", "A/B Testing", "Data Export", "Custom Events"],
+    "search_queries": ["analytics platform features 2025", "product analytics SaaS features", "web analytics UX patterns"]
+  },
+
+  "python-api": {
+    "comparables": ["FastAPI", "Django REST Framework", "Litestar", "Flask-RESTX"],
+    "feature_categories": ["OpenAPI/Swagger Docs", "Auth Middleware", "Rate Limiting", "Versioning", "Pagination", "Filtering/Sorting", "Background Tasks", "WebSockets", "File Upload", "Health Check Endpoint"],
+    "search_queries": ["REST API best practices 2025", "Python API framework features", "API design patterns"]
+  },
+
+  "python-web-app": {
+    "comparables": ["Django Admin", "Wagtail", "Mezzanine", "Flask-Admin"],
+    "feature_categories": ["Admin Interface", "User Management", "Permissions", "Caching", "Celery Tasks", "Email Integration", "Search", "Multi-tenancy"],
+    "search_queries": ["Django web app features 2025", "Python web app feature patterns"]
+  },
+
+  "nextjs-web-app": {
+    "comparables": ["Vercel", "Linear", "Loom", "Clerk", "Resend"],
+    "feature_categories": ["SSR/SSG Strategy", "API Routes", "Auth", "Image Optimization", "Middleware", "Edge Functions", "i18n", "Dark Mode", "Analytics Integration"],
+    "search_queries": ["Next.js app features 2025", "Next.js best practices feature list", "modern Next.js SaaS features"]
+  },
+
+  "react-app": {
+    "comparables": ["Vite ecosystem", "Tanstack Start", "Remix", "Gatsby"],
+    "feature_categories": ["State Management", "Data Fetching", "Error Boundaries", "Code Splitting", "i18n", "Testing", "PWA", "Accessibility"],
+    "search_queries": ["React app features best practices 2025", "React SPA feature checklist"]
+  },
+
+  "wordpress-cms": {
+    "comparables": ["WordPress.com", "WPEngine", "Kinsta", "Ghost", "Webflow"],
+    "feature_categories": ["Custom Post Types", "WooCommerce", "Security Hardening", "Performance/Caching", "SEO Plugins", "Multisite", "REST API", "Gutenberg Blocks"],
+    "search_queries": ["WordPress site features 2025", "WordPress plugin features checklist"]
+  },
+
+  "dotnet-app": {
+    "comparables": ["ASP.NET Boilerplates", "ABP Framework", "Clean Architecture .NET"],
+    "feature_categories": ["SignalR Real-time", "Identity Server", "Background Services", "Entity Framework", "Swagger/OpenAPI", "Health Checks", "gRPC", "Minimal APIs"],
+    "search_queries": [".NET web app features 2025", "ASP.NET Core best practices features"]
+  },
+
+  "web-app": {
+    "comparables": ["Linear", "Notion", "Airtable", "Coda", "Monday.com"],
+    "feature_categories": ["User Auth", "Dashboard/Overview", "Notifications", "Search", "Settings", "Dark Mode", "Export/Import", "Mobile Responsive", "API Access", "Role Permissions"],
+    "search_queries": ["modern web app features 2025", "SaaS web app feature checklist", "web application UX best practices 2025"]
+  }
+}

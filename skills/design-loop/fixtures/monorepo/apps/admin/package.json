@@ -1,0 +1,11 @@
+{
+  "name": "acme-admin",
+  "description": "Internal admin dashboard",
+  "dependencies": {
+    "next": "14.0.0",
+    "react": "18.0.0"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.0"
+  }
+}

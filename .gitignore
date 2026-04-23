@@ -1,0 +1,20 @@
+# Project profiles (contain user-specific data)
+skills/solo-dev-suite/profiles/*.json
+!skills/solo-dev-suite/profiles/example.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.vscode/
+.idea/
+
+# Claude Code local state
+.claude/
+.graymatter/

@@ -1,0 +1,87 @@
+{
+  "version": "2026.04",
+  "_comment": "See data/README.md for schema. Bump version on non-trivial edits.",
+  "project_types": {
+    "saas-dashboard": [
+      "Data visualization — chart density, legend treatment, color semantics for series",
+      "Density toggle — comfortable vs compact row heights, breakpoints where it flips",
+      "Command palette — global actions, keyboard entry points, result ranking",
+      "Navigation / IA — sidebar vs topbar vs hybrid, section grouping, secondary nav",
+      "Empty states — zero data, zero permissions, first-run onboarding moments",
+      "Filtering & search — faceted filters, saved views, URL state, query language",
+      "Realtime feedback — optimistic updates, inline loading, toast semantics"
+    ],
+    "marketing": [
+      "Hero composition — typography drama, imagery treatment, above-the-fold density",
+      "Scroll choreography — section transitions, reveal timing, parallax vs snap",
+      "Typography drama — oversize type, variable weight, editorial pairing",
+      "Social proof patterns — logo walls, testimonial cards, case-study tiles",
+      "CTA hierarchy — primary/secondary/ghost, repeat points down the page",
+      "Motion & transitions — entrance animations, hover affordances, restraint",
+      "Dark/light duality — which moments use which, and why"
+    ],
+    "dev-tool": [
+      "Keyboard-first interactions — shortcut discoverability, modal vs chord",
+      "Command palette — fuzzy match, action grouping, inline arguments",
+      "Terminal aesthetics — monospace hierarchy, ANSI color mapping, cursor styling",
+      "Dense info display — log tailing, stack traces, diff views",
+      "Progressive disclosure — collapsed-by-default panels, peek vs dig",
+      "Syntax / monospace treatment — code block chrome, copy affordance, line refs",
+      "Latency masking — skeleton vs spinner vs optimistic, what suits which action"
+    ],
+    "internal-ops": [
+      "Data density — rows per viewport, column prioritization, responsive overflow",
+      "Bulk actions — selection model, confirmation pattern, undo windows",
+      "Keyboard shortcuts — power-user navigation across tables and forms",
+      "Filtering system — saved queries, operator syntax, shareable URL state",
+      "Table design — sticky headers, inline edit, cell affordances, error states",
+      "Batch operations — progress visualization, partial failure handling",
+      "Audit / provenance — who-changed-what surfaces, history peek"
+    ],
+    "ecommerce": [
+      "Product grid — density, imagery crop, hover/quick-view, badge treatment",
+      "Cart & checkout flow — step visibility, address autofill, upsell moments",
+      "Search & filter — category nav, facets, empty-result recovery, suggestions",
+      "Trust signals — reviews, shipping, returns, security, placement rhythm",
+      "Imagery treatment — zoom, gallery, 3D/video, loading strategy",
+      "Mobile-first flows — thumb reach, sticky CTA, bottom-sheet filters",
+      "Post-purchase — confirmation, tracking, re-engagement hooks"
+    ],
+    "creative": [
+      "Canvas / workspace — focus mode, chrome minimalism, panel collapse",
+      "Tool palettes — grouping, discoverability, keyboard peek, contextual tools",
+      "Modal / dialog design — blocking vs non-blocking, positioning, dismissal",
+      "Timeline / layer UI — scrubbing, multi-select, nesting, lock/solo affordances",
+      "Color system for content — distinguishing UI chrome from user content",
+      "Immersive focus modes — hiding UI, returning from it, signal not noise",
+      "Export / share — format choices, preset libraries, pre-flight warnings"
+    ],
+    "game": [
+      "Menu systems — main menu mood, settings architecture, save/load ergonomics",
+      "Reward feedback — micro-animations, sound cues, screen shake discipline",
+      "Tutorial flow — in-context prompts, skippability, re-access",
+      "HUD / overlay — information density, fade rules, critical-state escalation",
+      "Input affordances — controller vs keyboard vs touch, remap surfaces",
+      "Reward animations — rarity tiers, pacing, celebration-vs-grind balance",
+      "Accessibility — colorblind modes, text scale, reduced motion, input alternatives"
+    ],
+    "docs": [
+      "Typography system — reading rhythm, heading hierarchy, line length",
+      "Code block treatment — syntax theme, copy, line highlight, filename chrome",
+      "Navigation — TOC shape, sidebar collapse, breadcrumb, on-page nav",
+      "Search — instant results, ranking, scoped search within sections",
+      "Cross-references — inline links, 'see also', versioned doc switcher",
+      "Content density — callouts, tabs, expandable blocks, when to use which",
+      "Mobile reading — nav affordance, sticky TOC vs hamburger, code scroll"
+    ],
+    "unknown": [
+      "General aesthetic direction — what feeling should the product project",
+      "Type system — heading/body scale, numeric/monospace usage",
+      "Color palette — surfaces, accents, semantic colors, dark/light",
+      "Spacing system — base unit, rhythm, component internal padding",
+      "Component patterns — button variants, input states, card styles",
+      "Motion language — default durations, easing, when to use what",
+      "Iconography — style, weight, sizing rules"
+    ]
+  }
+}

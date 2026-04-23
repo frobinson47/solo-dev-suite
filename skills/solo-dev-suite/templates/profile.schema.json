@@ -1,0 +1,172 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Solo Dev Suite — Project Profile",
+  "description": "Canonical schema for per-project profiles shared across all Solo Dev Suite child skills.",
+  "type": "object",
+  "required": [
+    "project_name",
+    "project_slug",
+    "description",
+    "project_type",
+    "primary_stack",
+    "hosting",
+    "target_users",
+    "business_model",
+    "available_hours_per_week",
+    "current_phase",
+    "schema_version"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "description": "Schema version — increment when breaking changes are made and a migration is added to profile_io.py.",
+      "const": 1
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Human-readable project name, e.g. 'My Project'.",
+      "minLength": 1,
+      "maxLength": 80
+    },
+    "project_slug": {
+      "type": "string",
+      "description": "Kebab-case identifier derived from the project name. Used for the profile filename and by child skills as a stable key. Lowercase letters, digits, hyphens only.",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "minLength": 1,
+      "maxLength": 60
+    },
+    "description": {
+      "type": "string",
+      "description": "One-sentence summary of what the project does. Kept short on purpose — forces clarity of intent.",
+      "minLength": 1,
+      "maxLength": 280
+    },
+    "project_type": {
+      "type": "string",
+      "description": "High-level project archetype. Used by child skills to tailor their output (e.g. security-audit has different checklists per type).",
+      "enum": [
+        "saas",
+        "internal-tool",
+        "marketing-site",
+        "mobile-app",
+        "cli-tool",
+        "library",
+        "plugin",
+        "game",
+        "other"
+      ]
+    },
+    "primary_stack": {
+      "type": "array",
+      "description": "Core technologies in use. Each item is free-form (e.g. 'Next.js 14', 'Supabase', 'Tailwind CSS'). Order does not matter.",
+      "items": { "type": "string", "minLength": 1 },
+      "minItems": 1,
+      "uniqueItems": true
+    },
+    "hosting": {
+      "type": "string",
+      "description": "Where the production instance runs. Free-form: 'homelab (Scooby)', 'Vercel', 'Cloudflare Workers', 'AWS ECS', 'self-hosted VPS', etc.",
+      "minLength": 1
+    },
+    "repository_path": {
+      "type": ["string", "null"],
+      "description": "Absolute path to the code repository on the local machine, or null if the project has no code yet (still in scope/architecture phase)."
+    },
+    "target_users": {
+      "type": "string",
+      "description": "Who uses this. Be specific — 'football pool commissioners' beats 'people who like sports'. Sharpens every downstream decision.",
+      "minLength": 1
+    },
+    "business_model": {
+      "type": "string",
+      "description": "How value is captured. Used by pricing-architect and valuation-adjacent skills.",
+      "enum": [
+        "saas-subscription",
+        "one-time-purchase",
+        "freemium",
+        "free-self-hosted",
+        "internal-only",
+        "undecided"
+      ]
+    },
+    "pricing_model": {
+      "type": ["object", "null"],
+      "description": "Populated by the saas-pricing-architect child skill. Null until that skill runs. Shape is owned by that skill and intentionally not enforced here.",
+      "additionalProperties": true
+    },
+    "launch_target_date": {
+      "type": ["string", "null"],
+      "description": "ISO 8601 date (YYYY-MM-DD) of the intended launch. Null if undated. Drives the sprint-planner and launch-readiness skills.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "available_hours_per_week": {
+      "type": "integer",
+      "description": "Realistic solo-dev hours per week. Be honest — overestimating here poisons every downstream plan. Used by sprint-planner for capacity math.",
+      "minimum": 0,
+      "maximum": 168
+    },
+    "current_phase": {
+      "type": "string",
+      "description": "Where the project is in the lifecycle. Used by list_skills.py to filter the child menu. Update as the project progresses.",
+      "enum": [
+        "idea",
+        "scope",
+        "architecture",
+        "build",
+        "ship",
+        "grow",
+        "sustain"
+      ]
+    },
+    "blockers": {
+      "type": "array",
+      "description": "Free-form notes about what's currently blocked or stuck. Children can append to this. Use verbs, not nouns ('waiting on Stripe approval' beats 'Stripe').",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "third_party_services": {
+      "type": "array",
+      "description": "External dependencies. Populated and maintained by the integration-mapper child skill. Each entry captures name, purpose, and a qualitative risk rating.",
+      "items": {
+        "type": "object",
+        "required": ["name", "purpose", "risk_level"],
+        "properties": {
+          "name": { "type": "string", "minLength": 1 },
+          "purpose": { "type": "string", "minLength": 1 },
+          "risk_level": {
+            "type": "string",
+            "enum": ["low", "medium", "high", "critical"],
+            "description": "Qualitative impact if this service fails, changes pricing, or deprecates."
+          },
+          "fallback": {
+            "type": ["string", "null"],
+            "description": "Optional: what the fallback plan is. Null until the dependency is analyzed."
+          }
+        },
+        "additionalProperties": false
+      }
+    },
+    "last_skill_run": {
+      "type": "object",
+      "description": "Map of child-skill-name → ISO 8601 timestamp of last run. The orchestrator updates this after successful child runs. Used for staleness detection.",
+      "additionalProperties": {
+        "type": "string",
+        "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+      }
+    },
+    "notes": {
+      "type": "string",
+      "description": "Freeform scratchpad. Anything that doesn't fit elsewhere. Child skills may write here but should prefer structured fields when possible."
+    },
+    "created_at": {
+      "type": "string",
+      "description": "ISO 8601 timestamp set by profile_io.py on init. Never modified after.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
+    "updated_at": {
+      "type": "string",
+      "description": "ISO 8601 timestamp set by profile_io.py on every successful write.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    }
+  },
+  "additionalProperties": false
+}

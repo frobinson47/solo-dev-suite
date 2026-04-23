@@ -1,0 +1,151 @@
+{
+  "_comment": "Registry of all Solo Dev Suite child skills. Orchestrator reads this to route and to build the phase-aware menu. Edit this file when adding/removing/retiring a child skill. Keep entries alphabetized by 'name' for sanity.",
+  "version": "2026.04",
+  "children": [
+    {
+      "name": "adr-generator",
+      "status": "active",
+      "phases": ["architecture", "build"],
+      "description": "Generates and maintains Architecture Decision Records in the Michael Nygard format -- numbered Markdown docs with context, decision, consequences, alternatives. Supports status lifecycle (proposed/accepted/superseded/deprecated) and bidirectional supersession tracking.",
+      "triggers": [
+        "generate an ADR",
+        "record this decision",
+        "log architecture decision",
+        "why did I choose X",
+        "add an ADR",
+        "list my ADRs"
+      ],
+      "output_location": "profile.adr_model + <repo>/docs/adr/NNNN-<slug>.md + index.md"
+    },
+    {
+      "name": "auto-docs",
+      "status": "active",
+      "phases": ["ship", "sustain"],
+      "description": "Generates and maintains project documentation (README, SETUP, ARCHITECTURE, CHANGELOG) by pulling from profile + sibling sidecars. Preserved regions survive regeneration. Re-runnable at every milestone.",
+      "triggers": [
+        "generate docs",
+        "update the README",
+        "refresh documentation",
+        "document this project",
+        "add a release",
+        "update changelog"
+      ],
+      "output_location": "profile.docs_model + <repo>/README.md + <repo>/docs/SETUP.md + <repo>/docs/ARCHITECTURE.md + <repo>/docs/CHANGELOG.md"
+    },
+    {
+      "name": "integration-mapper",
+      "status": "active",
+      "phases": ["architecture", "build"],
+      "description": "Maps every third-party service with 3-dimensional risk rating (blast radius, pricing exposure, deprecation risk), fallback plans, staleness detection, and unhedged bet warnings. Owns profile.third_party_services with lean risk rollup mirror.",
+      "triggers": [
+        "map my dependencies",
+        "audit third-party services",
+        "what am I depending on",
+        "integration risk review",
+        "add a service dependency",
+        "review my integrations"
+      ],
+      "output_location": "profile.third_party_services + <repo>/docs/INTEGRATIONS.md"
+    },
+    {
+      "name": "launch-readiness",
+      "status": "active",
+      "phases": ["ship"],
+      "description": "Pre-ship gate with 9-category tailored checklist (auth, error handling, legal, payment, email, performance, SEO, mobile, monitoring) gated on blocker resolution. Dynamically tailors items by project type, business model, pricing strategy, and third-party services. Nothing ships until blockers are green and sign-off is recorded.",
+      "triggers": [
+        "launch readiness",
+        "pre-ship check",
+        "am I ready to launch",
+        "go-live checklist",
+        "what's blocking launch"
+      ],
+      "output_location": "profile.readiness_model + <repo>/docs/LAUNCH_READINESS.md"
+    },
+    {
+      "name": "mvp-scope-guardian",
+      "status": "active",
+      "phases": ["scope"],
+      "description": "Sorts every feature into 4 buckets (LAUNCH-BLOCKING / POST-LAUNCH V1.1 / PARKING LOT / WON'T BUILD) with effort/impact scoring, produces locked MVP docs, and provides ongoing scope creep detection with recorded-NO rationale.",
+      "triggers": [
+        "lock the scope",
+        "prioritize features",
+        "MVP scope review",
+        "am I creeping scope"
+      ],
+      "output_location": "<repo>/docs/MVP_SCOPE.md + parking-lot.md"
+    },
+    {
+      "name": "saas-pricing-architect",
+      "status": "active",
+      "phases": ["scope", "grow"],
+      "description": "Designs versioned pricing (strategy/tiers/value-metric/annual-discount/launch-strategy) with competitive anchoring enforced, mirrors active pricing to profile.pricing_model, and produces PRICING.md with Stripe wiring hints. Iteration appends new versions; prior versions archived with timestamps.",
+      "triggers": [
+        "design my pricing",
+        "pricing strategy",
+        "what should I charge",
+        "tier structure"
+      ],
+      "output_location": "profile.pricing_model + <repo>/docs/PRICING.md"
+    },
+    {
+      "name": "security-audit",
+      "status": "active",
+      "phases": ["ship"],
+      "description": "Pre-ship security pass with 10-category tailored checklist (secrets, auth, input, transport, API, frontend, infra, deps, data, integrations), stack-aware items, accepted-risk with required rationale, and sign-off gated on criticals+highs.",
+      "triggers": [
+        "security audit",
+        "security review",
+        "security checklist",
+        "am I leaking anything",
+        "pre-ship security",
+        "check my security"
+      ],
+      "output_location": "profile.security_model + <repo>/docs/SECURITY_AUDIT.md"
+    },
+    {
+      "name": "sprint-planner",
+      "status": "active",
+      "phases": ["build"],
+      "description": "Converts a backlog into realistic solo-dev sprints with honest capacity math (buffer for day job + family), velocity tracking, launch countdown (red/yellow/green), and incomplete-item return to backlog.",
+      "triggers": [
+        "plan the next sprint",
+        "build a sprint plan",
+        "break this into sprints",
+        "roadmap",
+        "am I on track for launch",
+        "sprint update"
+      ],
+      "output_location": "profile.sprint_model + <repo>/docs/SPRINT_PLAN.md"
+    },
+    {
+      "name": "tech-debt-register",
+      "status": "active",
+      "phases": ["build", "sustain"],
+      "description": "Logs, categorizes, and prioritizes tech debt with 9 categories, impact/effort/urgency scoring, priority-ranked pay-down recommendations, and status lifecycle (open/paid-down/accepted). Not a shame exercise -- a managed backlog.",
+      "triggers": [
+        "log tech debt",
+        "tech debt register",
+        "add to the debt backlog",
+        "what debt do I have",
+        "resolve tech debt",
+        "what should I pay down next"
+      ],
+      "output_location": "profile.techdebt_model + <repo>/docs/TECH_DEBT.md"
+    },
+    {
+      "name": "testing-strategy",
+      "status": "active",
+      "phases": ["build"],
+      "description": "Generates a right-sized, stack-aware testing strategy with 4 categories (unit/integration/e2e/manual), effort splits, explicit skips, CI gates, review cadence with staleness detection, and iterable design.",
+      "triggers": [
+        "testing strategy",
+        "what should I test",
+        "test plan",
+        "how do I test this",
+        "update my test strategy",
+        "review testing approach"
+      ],
+      "output_location": "profile.testing_model + <repo>/docs/TESTING_STRATEGY.md"
+    }
+  ]
+}

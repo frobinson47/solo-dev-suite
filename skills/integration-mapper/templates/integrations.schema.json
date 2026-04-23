@@ -1,0 +1,163 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_slug",
+    "created_at",
+    "updated_at",
+    "services",
+    "change_log"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "project_slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "minLength": 2,
+      "maxLength": 60
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
+    "updated_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id", "name", "category", "purpose", "added_at",
+          "blast_radius", "pricing_exposure", "deprecation_risk",
+          "fallback", "review_cadence", "last_reviewed"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^INT\\d{2,}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "category": {
+            "enum": [
+              "payments", "auth", "email", "storage", "hosting",
+              "analytics", "monitoring", "api-data", "compute", "other"
+            ]
+          },
+          "purpose": {
+            "type": "string",
+            "minLength": 1
+          },
+          "added_at": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+          },
+          "blast_radius": {
+            "type": "object",
+            "required": ["rating", "rationale"],
+            "additionalProperties": false,
+            "properties": {
+              "rating": {
+                "enum": ["low", "medium", "high", "critical"]
+              },
+              "rationale": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "pricing_exposure": {
+            "type": "object",
+            "required": ["rating", "current_cost_usd_per_month", "notes"],
+            "additionalProperties": false,
+            "properties": {
+              "rating": {
+                "enum": ["low", "medium", "high"]
+              },
+              "current_cost_usd_per_month": {
+                "type": "number",
+                "minimum": 0
+              },
+              "notes": {
+                "type": "string"
+              }
+            }
+          },
+          "deprecation_risk": {
+            "type": "object",
+            "required": ["rating", "notes"],
+            "additionalProperties": false,
+            "properties": {
+              "rating": {
+                "enum": ["low", "medium", "high"]
+              },
+              "notes": {
+                "type": "string"
+              }
+            }
+          },
+          "fallback": {
+            "type": "object",
+            "required": ["plan", "tested", "notes"],
+            "additionalProperties": false,
+            "properties": {
+              "plan": {
+                "type": "string"
+              },
+              "tested": {
+                "type": "boolean"
+              },
+              "notes": {
+                "type": "string"
+              }
+            }
+          },
+          "review_cadence": {
+            "enum": ["monthly", "quarterly", "never"]
+          },
+          "last_reviewed": {
+            "type": ["string", "null"],
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "change_log": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["at", "action", "service_id", "change", "reason"],
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+          },
+          "action": {
+            "enum": ["added", "updated", "removed", "reviewed"]
+          },
+          "service_id": {
+            "type": "string"
+          },
+          "change": {
+            "type": "string"
+          },
+          "reason": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

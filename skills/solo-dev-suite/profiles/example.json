@@ -1,0 +1,23 @@
+{
+  "_comment": "Example profile -- copy this, rename to <your-slug>.json, and fill in your project details.",
+  "project_name": "My Project",
+  "project_slug": "my-project",
+  "description": "One-line description of what this builds",
+  "project_type": "saas",
+  "primary_stack": ["React", "FastAPI", "PostgreSQL"],
+  "hosting": "Vercel + Railway",
+  "repository_path": null,
+  "target_users": "Who uses this and why",
+  "business_model": "saas-subscription",
+  "pricing_model": null,
+  "launch_target_date": null,
+  "available_hours_per_week": 15,
+  "current_phase": "scope",
+  "blockers": [],
+  "third_party_services": [],
+  "last_skill_run": {},
+  "notes": "",
+  "created_at": "2026-01-01T00:00:00Z",
+  "updated_at": "2026-01-01T00:00:00Z",
+  "schema_version": 1
+}

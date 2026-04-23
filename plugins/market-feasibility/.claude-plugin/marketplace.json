@@ -1,0 +1,18 @@
+{
+  "name": "market-feasibility",
+  "description": "Software idea feasibility study and market viability analyzer",
+  "owner": {
+    "name": "Frank Robinson"
+  },
+  "plugins": [
+    {
+      "name": "market-feasibility",
+      "description": "Takes a software product idea and produces a comprehensive feasibility study covering technical, economic, legal, operational, scheduling, and market viability \u00e2\u20ac\u201d plus full pricing and go-to-market strategy",
+      "version": "1.1.0",
+      "source": "./",
+      "author": {
+        "name": "Frank Robinson"
+      }
+    }
+  ]
+}

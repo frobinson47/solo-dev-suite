@@ -1,0 +1,137 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_slug",
+    "created_at",
+    "updated_at",
+    "categories",
+    "sign_off",
+    "history"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "project_slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "minLength": 2,
+      "maxLength": 60
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
+    "updated_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "applicable", "items"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "applicable": {
+            "type": "boolean"
+          },
+          "items": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["id", "name", "severity", "status", "risk_rationale", "notes", "checked_at"],
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[A-Z]{2,5}\\d{2,}$"
+                },
+                "name": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "severity": {
+                  "enum": ["critical", "high", "medium", "low"]
+                },
+                "status": {
+                  "enum": ["not-checked", "passed", "failed", "not-applicable", "accepted-risk"]
+                },
+                "risk_rationale": {
+                  "type": "string"
+                },
+                "notes": {
+                  "type": "string"
+                },
+                "checked_at": {
+                  "type": ["string", "null"],
+                  "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "sign_off": {
+      "type": "object",
+      "required": ["criticals_resolved", "highs_resolved", "accepted_risks_count", "signed_at", "signed_by"],
+      "additionalProperties": false,
+      "properties": {
+        "criticals_resolved": {
+          "type": "boolean"
+        },
+        "highs_resolved": {
+          "type": "boolean"
+        },
+        "accepted_risks_count": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "signed_at": {
+          "type": ["string", "null"],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+        },
+        "signed_by": {
+          "type": ["string", "null"]
+        }
+      }
+    },
+    "history": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["at", "item_id", "old_status", "new_status", "notes"],
+        "additionalProperties": false,
+        "properties": {
+          "at": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+          },
+          "item_id": {
+            "type": "string"
+          },
+          "old_status": {
+            "type": "string"
+          },
+          "new_status": {
+            "type": "string"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

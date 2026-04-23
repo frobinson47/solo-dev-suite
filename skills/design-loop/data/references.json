@@ -1,0 +1,15 @@
+{
+  "version": "2026.04",
+  "_comment": "See data/README.md for schema. Bump version on non-trivial edits.",
+  "project_types": {
+    "saas-dashboard":  ["Linear", "Vercel Dashboard", "Stripe Dashboard", "Raycast", "Height"],
+    "marketing":       ["Apple", "Stripe", "Linear marketing", "Vercel marketing", "Framer"],
+    "dev-tool":        ["Raycast", "Warp", "Arc Browser", "Superhuman", "Railway"],
+    "internal-ops":    ["Retool", "Linear", "Superhuman", "Notion", "Height"],
+    "ecommerce":       ["Shopify admin", "Stripe", "Gumroad", "Linear", "Vercel store"],
+    "creative":        ["Figma", "Ableton Live", "Arc Browser", "Soundcloud 2024", "Runway"],
+    "game":            ["Balatro UI", "Slay the Spire", "Celeste menus", "Hades menus", "Into the Breach"],
+    "docs":            ["Stripe docs", "Linear docs", "Vercel docs", "Supabase docs", "Tailwind docs"],
+    "unknown":         ["Linear", "Vercel", "Stripe", "Raycast", "Apple"]
+  }
+}

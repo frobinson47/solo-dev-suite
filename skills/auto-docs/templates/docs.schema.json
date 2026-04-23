@@ -1,0 +1,138 @@
+{
+  "type": "object",
+  "required": [
+    "schema_version",
+    "project_slug",
+    "created_at",
+    "updated_at",
+    "user_content",
+    "releases",
+    "generated_sections"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "schema_version": {
+      "const": 1
+    },
+    "project_slug": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "minLength": 2,
+      "maxLength": 60
+    },
+    "created_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
+    "updated_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+    },
+    "user_content": {
+      "type": "object",
+      "required": ["headline", "status_badge", "install_steps", "screenshots", "support_contact"],
+      "additionalProperties": false,
+      "properties": {
+        "headline": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status_badge": {
+          "enum": ["in-development", "alpha", "beta", "production", "maintenance"]
+        },
+        "install_steps": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          }
+        },
+        "screenshots": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["path", "caption"],
+            "additionalProperties": false,
+            "properties": {
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "caption": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          }
+        },
+        "support_contact": {
+          "type": "string"
+        }
+      }
+    },
+    "releases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["version", "released_at", "headline", "highlights", "fixes", "breaking"],
+        "additionalProperties": false,
+        "properties": {
+          "version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "released_at": {
+            "type": "string",
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+          },
+          "headline": {
+            "type": "string",
+            "minLength": 1
+          },
+          "highlights": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "fixes": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "breaking": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "generated_sections": {
+      "type": "object",
+      "required": ["last_generated_at", "sources"],
+      "additionalProperties": false,
+      "properties": {
+        "last_generated_at": {
+          "type": ["string", "null"],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}"
+        },
+        "sources": {
+          "type": "object",
+          "required": ["profile", "scope", "pricing", "adrs", "integrations", "security"],
+          "additionalProperties": false,
+          "properties": {
+            "profile": { "type": "boolean" },
+            "scope": { "type": "boolean" },
+            "pricing": { "type": "boolean" },
+            "adrs": { "type": "boolean" },
+            "integrations": { "type": "boolean" },
+            "security": { "type": "boolean" }
+          }
+        }
+      }
+    }
+  }
+}
