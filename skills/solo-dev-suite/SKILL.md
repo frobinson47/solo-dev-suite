@@ -51,6 +51,8 @@ When triggered, figure out which of these the user wants:
 - **B. Work on an existing project** → go to §3
 - **C. List / show / edit profiles** → go to §4
 - **D. Invoke a child skill directly** → load the profile first (§3), then route (§5)
+- **E. Portfolio view** → go to §4b
+- **F. Generate a handoff document** → go to §4c
 
 If unclear, ask briefly. Don't run a questionnaire if the user just wants to see a list.
 
@@ -115,6 +117,40 @@ echo '<patch>' | python "<SKILL_DIR>/scripts/profile_io.py" update <slug> --from
 ```
 
 The update path uses a shallow merge — top-level keys in the patch replace top-level keys in the profile. For nested edits (e.g. adding to `third_party_services`), Claude should read the current profile, modify in memory, then write the full updated object.
+
+### 4b. Portfolio view
+
+Compare all projects side-by-side with health scores, sorted by urgency:
+
+```bash
+# Table view — sorted by urgency (lowest health first)
+python "<SKILL_DIR>/scripts/portfolio.py" view
+
+# Machine-readable
+python "<SKILL_DIR>/scripts/portfolio.py" view --json
+
+# Detailed health breakdown for one project
+python "<SKILL_DIR>/scripts/portfolio.py" health <slug>
+```
+
+Health score (0–100) factors in: phase progression, staleness (days since last skill run), active blockers, unhedged third-party risks, and phase-relevant skill coverage.
+
+### 4c. Generate handoff document
+
+Aggregate all skill outputs into a single PROJECT_HANDOFF.md:
+
+```bash
+# Developer handoff (architecture, tech debt, testing, sprint)
+python "<SKILL_DIR>/scripts/handoff.py" generate <slug>
+
+# Buyer handoff (adds pricing, market positioning, launch readiness)
+python "<SKILL_DIR>/scripts/handoff.py" generate <slug> --mode buyer
+
+# Custom output path
+python "<SKILL_DIR>/scripts/handoff.py" generate <slug> --output /path/to/HANDOFF.md
+```
+
+The handoff reads the profile + any docs/*.md files from the project repo. Missing sections are noted rather than omitted.
 
 ### 5. Route to child skill
 
@@ -191,8 +227,10 @@ solo-dev-suite/
 ├── templates/
 │   └── profile.schema.json      # JSON Schema for profile validation
 ├── scripts/
-│   ├── profile_io.py            # init / show / list / update profiles
-│   └── list_skills.py           # phase-aware child menu
+│   ├── profile_io.py            # init / show / list / update / delete profiles
+│   ├── list_skills.py           # phase-aware child menu
+│   ├── portfolio.py             # cross-project portfolio view + health scores
+│   └── handoff.py               # PROJECT_HANDOFF.md generator
 └── profiles/
     └── <slug>.json              # per-project profiles (one file each)
 ```
