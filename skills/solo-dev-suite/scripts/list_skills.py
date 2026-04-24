@@ -139,6 +139,68 @@ def render_grouped(children: List[Dict[str, Any]]) -> None:
 
 
 # --------------------------------------------------------------------------- #
+# Dependency checking                                                         #
+# --------------------------------------------------------------------------- #
+
+def _check_deps(children: List[Dict[str, Any]], skill_name: str, slug: str, as_json: bool) -> int:
+    """Check if a skill's dependencies and enhancers have been run.
+    Returns 0 if all clear, 5 if warnings exist."""
+    # Find the skill
+    skill = next((c for c in children if c["name"] == skill_name), None)
+    if skill is None:
+        _err(f"Unknown skill: '{skill_name}'.")
+        return 3
+
+    # Load the profile's last_skill_run
+    path = PROFILES_DIR / f"{slug}.json"
+    if not path.exists():
+        _err(f"No profile for slug '{slug}'.")
+        return 3
+    try:
+        profile = json.loads(path.read_text(encoding="utf-8"))
+    except json.JSONDecodeError:
+        _err(f"Profile corrupted: {path}")
+        return 2
+
+    last_runs = profile.get("last_skill_run", {})
+    depends_on = skill.get("depends_on", [])
+
+    # Also find skills that enhance this one
+    enhanced_by = [c["name"] for c in children
+                   if skill_name in c.get("enhances", [])]
+
+    warnings = []
+    for dep in depends_on:
+        if dep not in last_runs:
+            warnings.append({
+                "type": "dependency",
+                "skill": dep,
+                "message": f"'{dep}' should be run before '{skill_name}' -- it hasn't been run yet."
+            })
+
+    for enh in enhanced_by:
+        if enh not in last_runs and enh not in depends_on:
+            warnings.append({
+                "type": "enhancer",
+                "skill": enh,
+                "message": f"'{enh}' enhances '{skill_name}' -- running it first would give better results."
+            })
+
+    if as_json:
+        print(json.dumps({"skill": skill_name, "slug": slug, "warnings": warnings}, indent=2))
+    elif warnings:
+        print(f"\n  Dependency check for '{skill_name}' on project '{slug}':\n")
+        for w in warnings:
+            prefix = "REQUIRED" if w["type"] == "dependency" else "RECOMMENDED"
+            print(f"  [{prefix}] {w['message']}")
+        print()
+    else:
+        print(f"\n  All dependencies satisfied for '{skill_name}' on '{slug}'.\n")
+
+    return 5 if any(w["type"] == "dependency" for w in warnings) else 0
+
+
+# --------------------------------------------------------------------------- #
 # Main                                                                        #
 # --------------------------------------------------------------------------- #
 
@@ -150,11 +212,19 @@ def main(argv: Optional[List[str]] = None) -> int:
     # If both are given, --phase wins and we warn.
     parser.add_argument("--phase", choices=PHASES, help="Filter to this phase only.")
     parser.add_argument("--slug", help="Use this profile's current_phase as the filter.")
+    parser.add_argument("--check", metavar="SKILL", help="Check if a skill's dependencies have been run for a given --slug.")
     parser.add_argument("--json", action="store_true", help="Machine-readable JSON output.")
     args = parser.parse_args(argv)
 
     children = _load_children()
     phase: Optional[str] = None
+
+    # Dependency check mode
+    if args.check:
+        if not args.slug:
+            _err("--check requires --slug to look up last_skill_run.")
+            return 4
+        return _check_deps(children, args.check, args.slug, args.json)
 
     if args.phase:
         phase = args.phase

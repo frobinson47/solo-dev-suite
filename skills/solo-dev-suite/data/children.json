@@ -7,6 +7,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["architecture", "build"],
+      "depends_on": [],
+      "enhances": [],
       "description": "Generates and maintains Architecture Decision Records in the Michael Nygard format -- numbered Markdown docs with context, decision, consequences, alternatives. Supports status lifecycle (proposed/accepted/superseded/deprecated) and bidirectional supersession tracking.",
       "triggers": [
         "generate an ADR",
@@ -23,6 +25,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["ship", "sustain"],
+      "depends_on": [],
+      "enhances": [],
       "description": "Generates and maintains project documentation (README, SETUP, ARCHITECTURE, CHANGELOG) by pulling from profile + sibling sidecars. Preserved regions survive regeneration. Re-runnable at every milestone.",
       "triggers": [
         "generate docs",
@@ -39,6 +43,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["architecture", "build"],
+      "depends_on": [],
+      "enhances": ["security-audit", "launch-readiness"],
       "description": "Maps every third-party service with 3-dimensional risk rating (blast radius, pricing exposure, deprecation risk), fallback plans, staleness detection, and unhedged bet warnings. Owns profile.third_party_services with lean risk rollup mirror.",
       "triggers": [
         "map my dependencies",
@@ -55,6 +61,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["ship"],
+      "depends_on": ["security-audit"],
+      "enhances": [],
       "description": "Pre-ship gate with 9-category tailored checklist (auth, error handling, legal, payment, email, performance, SEO, mobile, monitoring) gated on blocker resolution. Dynamically tailors items by project type, business model, pricing strategy, and third-party services. Nothing ships until blockers are green and sign-off is recorded.",
       "triggers": [
         "launch readiness",
@@ -70,6 +78,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["scope"],
+      "depends_on": [],
+      "enhances": ["sprint-planner"],
       "description": "Sorts every feature into 4 buckets (LAUNCH-BLOCKING / POST-LAUNCH V1.1 / PARKING LOT / WON'T BUILD) with effort/impact scoring, produces locked MVP docs, and provides ongoing scope creep detection with recorded-NO rationale.",
       "triggers": [
         "lock the scope",
@@ -84,6 +94,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["scope", "grow"],
+      "depends_on": [],
+      "enhances": ["launch-readiness"],
       "description": "Designs versioned pricing (strategy/tiers/value-metric/annual-discount/launch-strategy) with competitive anchoring enforced, mirrors active pricing to profile.pricing_model, and produces PRICING.md with Stripe wiring hints. Iteration appends new versions; prior versions archived with timestamps.",
       "triggers": [
         "design my pricing",
@@ -98,6 +110,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["ship"],
+      "depends_on": [],
+      "enhances": ["launch-readiness"],
       "description": "Pre-ship security pass with 10-category tailored checklist (secrets, auth, input, transport, API, frontend, infra, deps, data, integrations), stack-aware items, accepted-risk with required rationale, and sign-off gated on criticals+highs.",
       "triggers": [
         "security audit",
@@ -114,6 +128,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["build"],
+      "depends_on": ["mvp-scope-guardian"],
+      "enhances": [],
       "description": "Converts a backlog into realistic solo-dev sprints with honest capacity math (buffer for day job + family), velocity tracking, launch countdown (red/yellow/green), and incomplete-item return to backlog.",
       "triggers": [
         "plan the next sprint",
@@ -130,6 +146,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["build", "sustain"],
+      "depends_on": [],
+      "enhances": [],
       "description": "Logs, categorizes, and prioritizes tech debt with 9 categories, impact/effort/urgency scoring, priority-ranked pay-down recommendations, and status lifecycle (open/paid-down/accepted). Not a shame exercise -- a managed backlog.",
       "triggers": [
         "log tech debt",
@@ -146,6 +164,8 @@
       "version": "1.0.0",
       "status": "active",
       "phases": ["build"],
+      "depends_on": [],
+      "enhances": ["launch-readiness"],
       "description": "Generates a right-sized, stack-aware testing strategy with 4 categories (unit/integration/e2e/manual), effort splits, explicit skips, CI gates, review cadence with staleness detection, and iterable design.",
       "triggers": [
         "testing strategy",
