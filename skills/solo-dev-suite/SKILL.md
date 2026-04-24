@@ -54,6 +54,7 @@ When triggered, figure out which of these the user wants:
 - **E. Portfolio view** → go to §4b
 - **F. Generate a handoff document** → go to §4c
 - **G. Cross-skill dashboard** → go to §4d
+- **H. Export to issue tracker** → go to §4e
 
 If unclear, ask briefly. Don't run a questionnaire if the user just wants to see a list.
 
@@ -184,6 +185,31 @@ python "<SKILL_DIR>/scripts/dashboard.py" render <slug> --no-open
 
 Reads the profile + all sidecar files (`<slug>.scope.json`, `<slug>.security.json`, etc.) to show each skill's status (OK / WARN / CRIT / not run) with a one-line detail. The HTML render is a self-contained dark-themed dashboard with status cards that auto-opens in the default browser.
 
+### 4e. Export to issue tracker
+
+Push skill outputs (scope items, tech debt, security findings, sprint items) to GitHub or Forgejo as labeled issues:
+
+```bash
+# Dry run — see what would be created
+python "<SKILL_DIR>/scripts/export_issues.py" export <slug> \
+    --target forgejo --repo owner/repo --token <token> \
+    --url https://forgejo.example.com/api/v1 --dry-run
+
+# Export all skills
+python "<SKILL_DIR>/scripts/export_issues.py" export <slug> \
+    --target github --repo owner/repo --token <token>
+
+# Export specific skills only
+python "<SKILL_DIR>/scripts/export_issues.py" export <slug> \
+    --target forgejo --repo owner/repo --token <token> \
+    --url https://forgejo.example.com/api/v1 --skills scope,techdebt
+
+# Check what's been exported
+python "<SKILL_DIR>/scripts/export_issues.py" status <slug>
+```
+
+Idempotent: tracks exported items in `<slug>.exported.json` to prevent duplicates. Auto-creates labels on the target repo if they don't exist.
+
 ### 5. Route to child skill
 
 Two paths:
@@ -264,7 +290,8 @@ solo-dev-suite/
 │   ├── quickstart.py            # project auto-detection for onboarding
 │   ├── portfolio.py             # cross-project portfolio view + health scores
 │   ├── dashboard.py             # cross-skill status dashboard + HTML render
-│   └── handoff.py               # PROJECT_HANDOFF.md generator
+│   ├── handoff.py               # PROJECT_HANDOFF.md generator
+│   └── export_issues.py         # issue tracker export (GitHub/Forgejo)
 └── profiles/
     └── <slug>.json              # per-project profiles (one file each)
 ```

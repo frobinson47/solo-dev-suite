@@ -5,6 +5,13 @@ All notable changes to the Solo Dev Suite are documented in this file.
 Format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2026-04-24
+
+### Added
+- **CI/CD workflow** (`.github/workflows/validate-skills.yml`): GitHub Actions validation for Python syntax, SKILL.md frontmatter, plugin.json, children.json, and marketplace.json on push/PR
+- **Skill creator** (`create_skill.py`): meta-skill that scaffolds a new child skill with SKILL.md, plugin.json, tool script, and auto-registration in children.json + marketplace.json
+- **Issue tracker export** (`export_issues.py`): pushes scope items, tech debt, security findings, and sprint items to GitHub/Forgejo as labeled issues with idempotent tracking
+
 ## [1.1.0] - 2026-04-24
 
 ### Added
