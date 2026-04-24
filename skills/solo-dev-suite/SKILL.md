@@ -53,12 +53,24 @@ When triggered, figure out which of these the user wants:
 - **D. Invoke a child skill directly** → load the profile first (§3), then route (§5)
 - **E. Portfolio view** → go to §4b
 - **F. Generate a handoff document** → go to §4c
+- **G. Cross-skill dashboard** → go to §4d
 
 If unclear, ask briefly. Don't run a questionnaire if the user just wants to see a list.
 
+### 1b. Auto-detect project (Quickstart)
+
+Before the onboarding interview, run the project detector to pre-fill as many fields as possible:
+
+```bash
+python "<SKILL_DIR>/scripts/quickstart.py" detect <project_path>
+python "<SKILL_DIR>/scripts/quickstart.py" detect <project_path> --json
+```
+
+This scans the directory for package manifests (package.json, Cargo.toml, go.mod, etc.), hosting configs (vercel.json, docker-compose.yml, etc.), and git history to infer stack, hosting, phase, and project type. Show the detected values to the user, then only ask about fields that came back null.
+
 ### 2. Onboard a new project (Profile creation)
 
-Conduct a short, conversational interview — NOT a wall of questions. Ask them in logical groups, skip anything obvious from context. Target: **10 questions max, grouped into 3 passes.**
+Start by running `quickstart.py detect` (§1b) on the project directory. Then fill in the gaps with a short, conversational interview — NOT a wall of questions. Ask only what wasn't detected. Target: **5-7 questions max after detection.**
 
 **Pass 1 — Identity (always ask):**
 - Project name
@@ -152,6 +164,26 @@ python "<SKILL_DIR>/scripts/handoff.py" generate <slug> --output /path/to/HANDOF
 
 The handoff reads the profile + any docs/*.md files from the project repo. Missing sections are noted rather than omitted.
 
+### 4d. Cross-skill dashboard
+
+Unified status view across all skills for a project:
+
+```bash
+# Terminal dashboard
+python "<SKILL_DIR>/scripts/dashboard.py" status <slug>
+
+# Machine-readable
+python "<SKILL_DIR>/scripts/dashboard.py" status <slug> --json
+
+# Write PROJECT_STATUS.md + PROJECT_STATUS.html and open in browser
+python "<SKILL_DIR>/scripts/dashboard.py" render <slug>
+
+# Write without opening browser
+python "<SKILL_DIR>/scripts/dashboard.py" render <slug> --no-open
+```
+
+Reads the profile + all sidecar files (`<slug>.scope.json`, `<slug>.security.json`, etc.) to show each skill's status (OK / WARN / CRIT / not run) with a one-line detail. The HTML render is a self-contained dark-themed dashboard with status cards that auto-opens in the default browser.
+
 ### 5. Route to child skill
 
 Two paths:
@@ -229,7 +261,9 @@ solo-dev-suite/
 ├── scripts/
 │   ├── profile_io.py            # init / show / list / update / delete profiles
 │   ├── list_skills.py           # phase-aware child menu
+│   ├── quickstart.py            # project auto-detection for onboarding
 │   ├── portfolio.py             # cross-project portfolio view + health scores
+│   ├── dashboard.py             # cross-skill status dashboard + HTML render
 │   └── handoff.py               # PROJECT_HANDOFF.md generator
 └── profiles/
     └── <slug>.json              # per-project profiles (one file each)

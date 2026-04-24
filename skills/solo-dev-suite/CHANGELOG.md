@@ -10,6 +10,10 @@ This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 ### Added
 - **Marketplace structure**: `.claude-plugin/marketplace.json` and per-skill `plugin.json` files enabling `claude plugin marketplace add` installation
 - **Semantic versioning**: `version` field in every SKILL.md frontmatter and children.json entry
+- **Onboarding wizard** (`quickstart.py`): auto-detects project stack, type, hosting, and phase from directory contents so onboarding only asks 5-7 questions instead of 10+
+- **Cross-skill dashboard** (`dashboard.py`): unified status view reading all sidecar files, with terminal, Markdown, and self-contained HTML output that auto-opens in the browser
+- **Portfolio view** (`portfolio.py`): side-by-side comparison of all projects with health scores sorted by urgency
+- **Handoff generator** (`handoff.py`): aggregates all skill outputs into PROJECT_HANDOFF.md with developer and buyer modes
 - **This changelog**: converted from session-based format to semver-based [Keep a Changelog](https://keepachangelog.com/) format
 
 ### Fixed

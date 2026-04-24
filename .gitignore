@@ -22,3 +22,8 @@ Thumbs.db
 # Feature-enhance output (generated per-run)
 fe-output/
 FEATURE_ENHANCEMENTS.md
+
+# Dashboard output (generated per-run)
+skills/solo-dev-suite/status/
+PROJECT_STATUS.md
+PROJECT_STATUS.html
