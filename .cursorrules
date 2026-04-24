@@ -1,0 +1,144 @@
+# Solo Dev Suite — Cursor Rules
+# This file tells Cursor how to use the Solo Dev Suite skills.
+# Place this file in the project root alongside the skills/ directory.
+
+# ============================================================================
+# SUITE OVERVIEW
+# ============================================================================
+#
+# Solo Dev Suite is a collection of 10+ lifecycle skills for solo developers.
+# All skills share a central Project Profile stored as JSON files in:
+#   skills/solo-dev-suite/profiles/<slug>.json
+#
+# Skills produce sidecar data files at:
+#   skills/solo-dev-suite/profiles/<slug>.<skill-name>.json
+#
+# Skills are invoked via Python scripts — no external dependencies required.
+# All scripts use pure Python stdlib and follow consistent CLI patterns.
+
+# ============================================================================
+# SKILL DISCOVERY
+# ============================================================================
+#
+# Available skills and their entry points:
+#
+# ORCHESTRATOR (start here):
+#   python skills/solo-dev-suite/scripts/profile_io.py --help
+#   python skills/solo-dev-suite/scripts/list_skills.py --help
+#   python skills/solo-dev-suite/scripts/quickstart.py --help
+#   python skills/solo-dev-suite/scripts/dashboard.py --help
+#   python skills/solo-dev-suite/scripts/portfolio.py --help
+#   python skills/solo-dev-suite/scripts/handoff.py --help
+#   python skills/solo-dev-suite/scripts/export_issues.py --help
+#   python skills/solo-dev-suite/scripts/create_skill.py --help
+#
+# CHILD SKILLS:
+#   python skills/adr-generator/scripts/adr_tool.py --help
+#   python skills/auto-docs/scripts/docs_tool.py --help
+#   python skills/integration-mapper/scripts/integration_tool.py --help
+#   python skills/launch-readiness/scripts/readiness_tool.py --help
+#   python skills/mvp-scope-guardian/scripts/scope_tool.py --help
+#   python skills/saas-pricing-architect/scripts/pricing_tool.py --help
+#   python skills/security-audit/scripts/security_tool.py --help
+#   python skills/sprint-planner/scripts/sprint_tool.py --help
+#   python skills/tech-debt-register/scripts/debt_tool.py --help
+#   python skills/testing-strategy/scripts/testing_tool.py --help
+
+# ============================================================================
+# RULES
+# ============================================================================
+
+# Rule: When the user asks about project scope, features, or MVP decisions
+# Action: Use the MVP Scope Guardian
+# Command: python skills/mvp-scope-guardian/scripts/scope_tool.py
+# Phases: scope
+
+# Rule: When the user asks about pricing, tiers, or monetization
+# Action: Use the SaaS Pricing Architect
+# Command: python skills/saas-pricing-architect/scripts/pricing_tool.py
+# Phases: scope, grow
+
+# Rule: When the user asks about architecture decisions or ADRs
+# Action: Use the ADR Generator
+# Command: python skills/adr-generator/scripts/adr_tool.py
+# Phases: architecture, build
+
+# Rule: When the user asks about third-party services, dependencies, or integrations
+# Action: Use the Integration Mapper
+# Command: python skills/integration-mapper/scripts/integration_tool.py
+# Phases: architecture, build
+
+# Rule: When the user asks about sprints, velocity, or task planning
+# Action: Use the Sprint Planner
+# Command: python skills/sprint-planner/scripts/sprint_tool.py
+# Phases: build
+
+# Rule: When the user asks about tech debt or code quality debt
+# Action: Use the Tech Debt Register
+# Command: python skills/tech-debt-register/scripts/debt_tool.py
+# Phases: build, sustain
+
+# Rule: When the user asks about testing strategy or test coverage
+# Action: Use the Testing Strategy skill
+# Command: python skills/testing-strategy/scripts/testing_tool.py
+# Phases: build
+
+# Rule: When the user asks about security, vulnerabilities, or pre-ship security
+# Action: Use the Security Audit
+# Command: python skills/security-audit/scripts/security_tool.py
+# Phases: ship
+
+# Rule: When the user asks about launch readiness or go-live checklist
+# Action: Use the Launch Readiness skill
+# Command: python skills/launch-readiness/scripts/readiness_tool.py
+# Phases: ship
+
+# Rule: When the user asks about documentation, README, or changelog
+# Action: Use the Auto-Docs skill
+# Command: python skills/auto-docs/scripts/docs_tool.py
+# Phases: ship, sustain
+
+# Rule: When the user asks to see project status or dashboard
+# Action: Use the Dashboard
+# Command: python skills/solo-dev-suite/scripts/dashboard.py status <slug>
+
+# Rule: When the user asks to compare projects or see portfolio health
+# Action: Use the Portfolio view
+# Command: python skills/solo-dev-suite/scripts/portfolio.py view
+
+# Rule: When the user asks to export items to an issue tracker
+# Action: Use the Issue Tracker Export
+# Command: python skills/solo-dev-suite/scripts/export_issues.py export <slug> --help
+
+# ============================================================================
+# WORKFLOW
+# ============================================================================
+#
+# 1. FIRST TIME: Create a project profile
+#    python skills/solo-dev-suite/scripts/quickstart.py detect <project-path>
+#    # Then use profile_io.py init to create the profile with detected + manual fields
+#
+# 2. CHECK PHASE: See what skills apply
+#    python skills/solo-dev-suite/scripts/list_skills.py --slug <slug>
+#
+# 3. RUN A SKILL: Each skill reads the profile automatically
+#    python skills/<skill-name>/scripts/<tool>.py <command> <slug>
+#
+# 4. VIEW STATUS: See all skill outputs in one place
+#    python skills/solo-dev-suite/scripts/dashboard.py status <slug>
+#
+# 5. RECORD THE RUN: Update the profile's last_skill_run timestamp
+#    echo '{"last_skill_run": {"<skill-name>": "<ISO-date>"}}' | \
+#      python skills/solo-dev-suite/scripts/profile_io.py update <slug> --from-stdin
+
+# ============================================================================
+# CONVENTIONS
+# ============================================================================
+#
+# - All scripts accept --help for usage information
+# - All scripts accept --json for machine-readable output where applicable
+# - Exit code 0 = success, 1 = not found, 2 = broken install
+# - Profile slugs are kebab-case identifiers (e.g., "my-saas-app")
+# - Sidecar files follow the pattern: <slug>.<skill-name>.json
+# - All scripts use UTF-8 encoding
+# - No external Python dependencies — pure stdlib only
