@@ -1,0 +1,142 @@
+name: Validate Skills
+
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+    branches: [master, main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.9", "3.12"]
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Syntax check all Python scripts
+        run: |
+          echo "Checking Python syntax..."
+          errors=0
+          for f in $(find skills/ plugins/ -name "*.py" -type f); do
+            if ! python -c "import py_compile; py_compile.compile('$f', doraise=True)" 2>/dev/null; then
+              echo "FAIL: $f"
+              python -c "import py_compile; py_compile.compile('$f', doraise=True)" || true
+              errors=$((errors + 1))
+            else
+              echo "  OK: $f"
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "$errors file(s) failed syntax check"
+            exit 1
+          fi
+          echo "All Python files passed syntax check"
+
+      - name: Validate SKILL.md frontmatter
+        run: |
+          echo "Checking SKILL.md frontmatter..."
+          errors=0
+          for f in $(find skills/ -name "SKILL.md" -type f); do
+            # Check for required frontmatter fields
+            if ! head -20 "$f" | grep -q "^name:"; then
+              echo "FAIL: $f missing 'name' in frontmatter"
+              errors=$((errors + 1))
+            fi
+            if ! head -20 "$f" | grep -q "^version:"; then
+              echo "FAIL: $f missing 'version' in frontmatter"
+              errors=$((errors + 1))
+            fi
+            if ! head -20 "$f" | grep -q "^description:"; then
+              echo "FAIL: $f missing 'description' in frontmatter"
+              errors=$((errors + 1))
+            fi
+            if [ $errors -eq 0 ]; then
+              echo "  OK: $f"
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "$errors frontmatter issue(s) found"
+            exit 1
+          fi
+          echo "All SKILL.md files have valid frontmatter"
+
+      - name: Validate plugin.json files
+        run: |
+          echo "Checking plugin.json files..."
+          errors=0
+          for f in $(find . -path "*/.claude-plugin/plugin.json" -type f); do
+            if ! python -c "
+          import json, sys
+          with open('$f') as fh:
+              d = json.load(fh)
+          for key in ('name', 'version', 'description'):
+              if key not in d:
+                  print(f'FAIL: $f missing required field: {key}')
+                  sys.exit(1)
+          print(f'  OK: $f')
+          " 2>/dev/null; then
+              errors=$((errors + 1))
+            fi
+          done
+          if [ $errors -gt 0 ]; then
+            echo "$errors plugin.json issue(s) found"
+            exit 1
+          fi
+          echo "All plugin.json files are valid"
+
+      - name: Validate children.json
+        run: |
+          python -c "
+          import json, sys
+          with open('skills/solo-dev-suite/data/children.json') as f:
+              data = json.load(f)
+          children = data.get('children', [])
+          errors = []
+          required = ['name', 'version', 'status', 'phases', 'description', 'triggers']
+          for c in children:
+              for key in required:
+                  if key not in c:
+                      errors.append(f\"{c.get('name', '?')}: missing '{key}'\")
+              if not c.get('phases'):
+                  errors.append(f\"{c['name']}: phases array is empty\")
+          if errors:
+              for e in errors:
+                  print(f'FAIL: {e}')
+              sys.exit(1)
+          print(f'children.json: {len(children)} skills validated')
+          "
+
+      - name: Verify marketplace.json references valid sources
+        run: |
+          python -c "
+          import json, os, sys
+          with open('.claude-plugin/marketplace.json') as f:
+              data = json.load(f)
+          errors = []
+          for plugin in data.get('plugins', []):
+              source = plugin.get('source', '')
+              # Check that the source directory exists
+              if not os.path.isdir(source.lstrip('./')):
+                  errors.append(f\"{plugin['name']}: source '{source}' does not exist\")
+          if errors:
+              for e in errors:
+                  print(f'FAIL: {e}')
+              sys.exit(1)
+          print(f'marketplace.json: {len(data[\"plugins\"])} plugins validated')
+          "
+
+      - name: Run orchestrator scripts smoke test
+        run: |
+          cd skills/solo-dev-suite
+          python scripts/profile_io.py list
+          python scripts/list_skills.py --phase build
+          python scripts/portfolio.py view || true  # exits 1 if no profiles, that's OK
+          echo "Smoke tests passed"
