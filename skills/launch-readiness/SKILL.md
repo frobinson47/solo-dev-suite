@@ -1,5 +1,6 @@
 ---
 name: launch-readiness
+version: 1.0.0
 description: Pre-ship gate that produces a tailored launch checklist covering auth, error handling, legal, payment flow, email deliverability, performance, SEO, mobile, and monitoring — with severity-gated sign-off. Triggers on "launch readiness", "pre-ship check", "am I ready to launch", "go-live checklist", or "what's blocking launch". Part of the solo-dev-suite — loads the project profile via the orchestrator. Not for security audits (use security-audit) or documentation generation (use auto-docs).
 ---
 

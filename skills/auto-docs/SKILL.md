@@ -1,5 +1,6 @@
 ---
 name: auto-docs
+version: 1.0.0
 description: Generates and maintains project documentation (README, SETUP, ARCHITECTURE, CHANGELOG) by pulling from the profile and sibling sidecars. Re-runnable at every milestone so docs stay current without being a full-time job.
 ---
 

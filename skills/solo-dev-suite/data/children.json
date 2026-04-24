@@ -4,6 +4,7 @@
   "children": [
     {
       "name": "adr-generator",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["architecture", "build"],
       "description": "Generates and maintains Architecture Decision Records in the Michael Nygard format -- numbered Markdown docs with context, decision, consequences, alternatives. Supports status lifecycle (proposed/accepted/superseded/deprecated) and bidirectional supersession tracking.",
@@ -19,6 +20,7 @@
     },
     {
       "name": "auto-docs",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["ship", "sustain"],
       "description": "Generates and maintains project documentation (README, SETUP, ARCHITECTURE, CHANGELOG) by pulling from profile + sibling sidecars. Preserved regions survive regeneration. Re-runnable at every milestone.",
@@ -34,6 +36,7 @@
     },
     {
       "name": "integration-mapper",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["architecture", "build"],
       "description": "Maps every third-party service with 3-dimensional risk rating (blast radius, pricing exposure, deprecation risk), fallback plans, staleness detection, and unhedged bet warnings. Owns profile.third_party_services with lean risk rollup mirror.",
@@ -49,6 +52,7 @@
     },
     {
       "name": "launch-readiness",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["ship"],
       "description": "Pre-ship gate with 9-category tailored checklist (auth, error handling, legal, payment, email, performance, SEO, mobile, monitoring) gated on blocker resolution. Dynamically tailors items by project type, business model, pricing strategy, and third-party services. Nothing ships until blockers are green and sign-off is recorded.",
@@ -63,6 +67,7 @@
     },
     {
       "name": "mvp-scope-guardian",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["scope"],
       "description": "Sorts every feature into 4 buckets (LAUNCH-BLOCKING / POST-LAUNCH V1.1 / PARKING LOT / WON'T BUILD) with effort/impact scoring, produces locked MVP docs, and provides ongoing scope creep detection with recorded-NO rationale.",
@@ -76,6 +81,7 @@
     },
     {
       "name": "saas-pricing-architect",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["scope", "grow"],
       "description": "Designs versioned pricing (strategy/tiers/value-metric/annual-discount/launch-strategy) with competitive anchoring enforced, mirrors active pricing to profile.pricing_model, and produces PRICING.md with Stripe wiring hints. Iteration appends new versions; prior versions archived with timestamps.",
@@ -89,6 +95,7 @@
     },
     {
       "name": "security-audit",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["ship"],
       "description": "Pre-ship security pass with 10-category tailored checklist (secrets, auth, input, transport, API, frontend, infra, deps, data, integrations), stack-aware items, accepted-risk with required rationale, and sign-off gated on criticals+highs.",
@@ -104,6 +111,7 @@
     },
     {
       "name": "sprint-planner",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["build"],
       "description": "Converts a backlog into realistic solo-dev sprints with honest capacity math (buffer for day job + family), velocity tracking, launch countdown (red/yellow/green), and incomplete-item return to backlog.",
@@ -119,6 +127,7 @@
     },
     {
       "name": "tech-debt-register",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["build", "sustain"],
       "description": "Logs, categorizes, and prioritizes tech debt with 9 categories, impact/effort/urgency scoring, priority-ranked pay-down recommendations, and status lifecycle (open/paid-down/accepted). Not a shame exercise -- a managed backlog.",
@@ -134,6 +143,7 @@
     },
     {
       "name": "testing-strategy",
+      "version": "1.0.0",
       "status": "active",
       "phases": ["build"],
       "description": "Generates a right-sized, stack-aware testing strategy with 4 categories (unit/integration/e2e/manual), effort splits, explicit skips, CI gates, review cadence with staleness detection, and iterable design.",

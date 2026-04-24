@@ -1,5 +1,6 @@
 ---
 name: sprint-planner
+version: 1.0.0
 description: Converts a backlog into realistic solo-dev sprints accounting for day job + family + surprise maintenance -- with velocity tracking, launch countdown, and honest capacity math.
 ---
 

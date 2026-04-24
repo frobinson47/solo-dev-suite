@@ -1,5 +1,6 @@
 ---
 name: security-audit
+version: 1.0.0
 description: Pre-ship security pass producing a prioritized findings list covering auth hardening, data exposure, secret management, and stack-specific checks. Triggers on "security audit", "security review", "security checklist", "am I leaking anything", "pre-ship security", or "check my security". Part of the solo-dev-suite -- loads the project profile via the orchestrator. Not a pentest -- a systematic "door-locked check" for solo devs.
 ---
 

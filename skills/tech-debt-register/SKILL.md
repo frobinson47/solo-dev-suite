@@ -1,5 +1,6 @@
 ---
 name: tech-debt-register
+version: 1.0.0
 description: Logs, categorizes, and prioritizes tech debt as it's incurred. Not a shame exercise -- a managed backlog with pay-down window recommendations and priority scoring.
 ---
 

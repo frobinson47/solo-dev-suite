@@ -1,5 +1,6 @@
 ---
 name: saas-pricing-architect
+version: 1.0.0
 description: Designs a defensible SaaS pricing structure -- strategy (freemium/trial/paid), billing unit, tier count and content, psychological pricing, annual discounting, and launch vs steady-state pricing. Produces a versioned pricing model with change history and a rendered PRICING.md doc. Triggers on "design my pricing", "pricing strategy", "what should I charge", "tier structure", "iterate my pricing", "compare pricing", "am I pricing wrong". Part of the solo-dev-suite. Not for one-off "what's a fair price for X" questions (just answer those) or for non-SaaS monetization (ads, one-time sales, marketplaces).
 ---
 

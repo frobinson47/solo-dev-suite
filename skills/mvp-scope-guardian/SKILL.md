@@ -1,5 +1,6 @@
 ---
 name: mvp-scope-guardian
+version: 1.0.0
 description: Locks an MVP definition by sorting every feature into four buckets (LAUNCH-BLOCKING / POST-LAUNCH V1.1 / PARKING LOT / WON'T BUILD) with effort/impact scoring, then provides ongoing scope creep detection. Triggers on "lock the scope", "prioritize features", "MVP scope review", "am I creeping scope", "should I add feature X", "is this scope creep", or "rescope the project". Part of the solo-dev-suite -- loads the project profile via the orchestrator. Not for greenfield brainstorming (use the brainstorming skill) or tech architecture decisions (use adr-generator).
 ---
 

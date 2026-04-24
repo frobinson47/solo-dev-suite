@@ -1,5 +1,6 @@
 ---
 name: testing-strategy
+version: 1.0.0
 description: Generates a right-sized, stack-aware testing strategy specifying what to unit test, integration test, E2E test, and manually test -- avoiding both under-testing and 100%-coverage dogma.
 ---
 

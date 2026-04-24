@@ -1,5 +1,6 @@
 ---
 name: feature-enhance
+version: 1.0.0
 description: >
   Comprehensive feature-enhancement discovery skill. Points at any codebase — the current
   Claude Code workspace, a local source folder, or a Forgejo/Git repo URL — scans the full

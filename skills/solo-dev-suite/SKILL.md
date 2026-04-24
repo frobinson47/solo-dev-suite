@@ -1,5 +1,6 @@
 ---
 name: solo-dev-suite
+version: 1.1.0
 description: Master orchestrator for the Solo Dev Suite — a collection of lifecycle skills (scope guardian, sprint planner, pricing architect, launch readiness, ADR generator, security audit, integration mapper, auto-docs, tech debt register, testing strategy) that share a central Project Profile. Triggers on requests like "solo dev suite", "run the suite on {project}", "set up a project profile", "what suite skills apply here", "show my projects", or any direct invocation of a child skill by name when no profile exists yet. Not for one-off tasks with no ongoing project — those stay as standalone skills.
 ---
 

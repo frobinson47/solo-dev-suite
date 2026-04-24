@@ -1,5 +1,6 @@
 ---
 name: integration-mapper
+version: 1.0.0
 description: Maps every third-party service the project depends on with 3-dimensional risk rating (blast radius, pricing exposure, deprecation risk), fallback plans, review cadence, and staleness detection. Triggers on "map my dependencies", "audit third-party services", "what am I depending on", "integration risk review", "add a service dependency", or "review my integrations". Part of the solo-dev-suite — loads the project profile via the orchestrator. Not for internal code dependencies (use tech-debt-register) or security-specific audits (use security-audit).
 ---
 

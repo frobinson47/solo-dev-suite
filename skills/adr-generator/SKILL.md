@@ -1,5 +1,6 @@
 ---
 name: adr-generator
+version: 1.0.0
 description: Generates and maintains Architecture Decision Records (ADRs) in the Michael Nygard format -- numbered, sequentially stored Markdown docs capturing context, options considered, decision, and consequences. Triggers on "generate an ADR", "record this decision", "log architecture decision", "why did I choose X", "add an ADR", or "list my ADRs". Part of the solo-dev-suite -- loads the project profile via the orchestrator. Not for runtime config changes (those are just code) or meeting notes (use a wiki).
 ---
 

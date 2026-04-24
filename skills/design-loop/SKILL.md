@@ -1,5 +1,6 @@
 ---
 name: design-loop
+version: 1.0.0
 description: Generates a customized design-exploration loop prompt for an existing project by discovering its stack, domain, and aesthetic, then tailoring references and constraints accordingly. Triggers on requests like "design loop on {project}", "refine the UI of this project", "explore design directions for {project}", "make this look more polished", "visual refresh", "modernize the UI", or "UI audit". Not for greenfield design, CSS debugging, or single-component tweaks — requires a target directory with an existing UI surface to analyze.
 ---
 
