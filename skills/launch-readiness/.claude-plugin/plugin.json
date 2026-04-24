@@ -1,0 +1,9 @@
+{
+  "name": "launch-readiness",
+  "version": "1.0.0",
+  "description": "Pre-ship gate with 9-category tailored checklist gated on blocker resolution. Dynamically tailors by project type and business model.",
+  "author": { "name": "Frank Robinson" },
+  "license": "MIT",
+  "keywords": ["launch", "ship", "checklist", "readiness", "go-live"],
+  "skills": "."
+}

@@ -1,0 +1,9 @@
+{
+  "name": "testing-strategy",
+  "version": "1.0.0",
+  "description": "Generates right-sized, stack-aware testing strategies with effort splits, CI gates, and review cadence.",
+  "author": { "name": "Frank Robinson" },
+  "license": "MIT",
+  "keywords": ["testing", "unit-tests", "integration-tests", "e2e", "ci"],
+  "skills": "."
+}

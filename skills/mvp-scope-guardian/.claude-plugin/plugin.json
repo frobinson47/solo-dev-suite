@@ -1,0 +1,9 @@
+{
+  "name": "mvp-scope-guardian",
+  "version": "1.0.0",
+  "description": "Sorts features into 4 buckets (launch-blocking, post-launch, parking lot, won't build) with effort/impact scoring and scope creep detection.",
+  "author": { "name": "Frank Robinson" },
+  "license": "MIT",
+  "keywords": ["mvp", "scope", "features", "prioritization", "scope-creep"],
+  "skills": "."
+}

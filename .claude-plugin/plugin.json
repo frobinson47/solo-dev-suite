@@ -1,0 +1,29 @@
+{
+  "name": "solo-dev-suite",
+  "version": "1.0.0",
+  "description": "13 Claude Code skills and 2 plugins that cover the entire solo developer lifecycle — from idea validation through launch and beyond. Shared project profiles, cross-skill data flows, and a master orchestrator that routes you to the right skill at the right time.",
+  "author": {
+    "name": "Frank Robinson"
+  },
+  "license": "MIT",
+  "keywords": [
+    "solo-developer",
+    "lifecycle",
+    "mvp",
+    "scope",
+    "architecture",
+    "adr",
+    "security-audit",
+    "launch-readiness",
+    "pricing",
+    "sprint-planning",
+    "tech-debt",
+    "testing-strategy",
+    "documentation",
+    "integration-mapping",
+    "feasibility",
+    "valuation",
+    "orchestrator"
+  ],
+  "skills": "skills/"
+}

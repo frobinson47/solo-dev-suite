@@ -1,0 +1,9 @@
+{
+  "name": "design-loop",
+  "version": "1.0.0",
+  "description": "Iterative UI/UX design feedback loop for frontend development with screenshot-driven review cycles.",
+  "author": { "name": "Frank Robinson" },
+  "license": "MIT",
+  "keywords": ["design", "ui", "ux", "frontend", "review"],
+  "skills": "."
+}

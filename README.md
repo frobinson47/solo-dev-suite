@@ -41,7 +41,17 @@ The orchestrator filters skills by your project's current phase so you only see 
 
 ## Install
 
-### Linux / macOS
+### Option 1: Claude Code Plugin Marketplace (recommended)
+
+```bash
+claude plugin marketplace add https://github.com/frobinson47/solo-dev-suite
+```
+
+This registers all 15 components (13 skills + 2 plugins) in one command. Claude Code handles updates automatically.
+
+### Option 2: Manual Install
+
+#### Linux / macOS
 
 ```bash
 git clone https://github.com/frobinson47/solo-dev-suite.git
@@ -49,7 +59,7 @@ cd solo-dev-suite
 ./install.sh
 ```
 
-### Windows (PowerShell)
+#### Windows (PowerShell)
 
 ```powershell
 git clone https://github.com/frobinson47/solo-dev-suite.git
@@ -57,7 +67,7 @@ cd solo-dev-suite
 .\install.ps1
 ```
 
-The installer symlinks (Linux/macOS) or copies (Windows) skills into `~/.claude/skills/` and plugins into `~/.claude/plugins/marketplaces/`. Restart Claude Code after installing.
+The manual installer symlinks (Linux/macOS) or copies (Windows) skills into `~/.claude/skills/` and plugins into `~/.claude/plugins/marketplaces/`. Restart Claude Code after installing.
 
 ## Quick Start
 
@@ -71,6 +81,9 @@ The orchestrator loads your profile automatically and routes to the right skill.
 
 ```
 solo-dev-suite/
+  .claude-plugin/
+    marketplace.json          # Plugin marketplace manifest (15 entries)
+    plugin.json               # Root plugin metadata
   skills/
     solo-dev-suite/           # Master orchestrator
       profiles/<slug>.json    # Your project profiles (gitignored)

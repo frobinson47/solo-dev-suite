@@ -1,0 +1,9 @@
+{
+  "name": "adr-generator",
+  "version": "1.0.0",
+  "description": "Generates and maintains Architecture Decision Records in Michael Nygard format with status lifecycle and supersession tracking.",
+  "author": { "name": "Frank Robinson" },
+  "license": "MIT",
+  "keywords": ["adr", "architecture", "decisions", "documentation"],
+  "skills": "."
+}

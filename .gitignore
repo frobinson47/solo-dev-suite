@@ -18,3 +18,7 @@ Thumbs.db
 # Claude Code local state
 .claude/
 .graymatter/
+
+# Feature-enhance output (generated per-run)
+fe-output/
+FEATURE_ENHANCEMENTS.md

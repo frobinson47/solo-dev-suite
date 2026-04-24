@@ -1,0 +1,114 @@
+{
+  "name": "Solo Dev Suite",
+  "description": "Complete solo developer lifecycle toolkit — 13 skills and 2 plugins covering idea validation, scoping, architecture, building, shipping, growing, and sustaining software products.",
+  "owner": {
+    "name": "Frank Robinson"
+  },
+  "plugins": [
+    {
+      "name": "solo-dev-suite",
+      "description": "Master orchestrator — routes requests to the right child skill based on your project phase and intent. Manages shared project profiles across all skills.",
+      "version": "1.0.0",
+      "source": "./skills/solo-dev-suite",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "mvp-scope-guardian",
+      "description": "Sorts features into 4 buckets (launch-blocking, post-launch, parking lot, won't build) with effort/impact scoring and scope creep detection.",
+      "version": "1.0.0",
+      "source": "./skills/mvp-scope-guardian",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "saas-pricing-architect",
+      "description": "Designs versioned SaaS pricing with tiers, value metrics, competitive anchoring, and Stripe wiring hints.",
+      "version": "1.0.0",
+      "source": "./skills/saas-pricing-architect",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "adr-generator",
+      "description": "Generates and maintains Architecture Decision Records in Michael Nygard format with status lifecycle and supersession tracking.",
+      "version": "1.0.0",
+      "source": "./skills/adr-generator",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "integration-mapper",
+      "description": "Maps third-party service dependencies with 3D risk rating (blast radius, pricing exposure, deprecation risk) and fallback plans.",
+      "version": "1.0.0",
+      "source": "./skills/integration-mapper",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "security-audit",
+      "description": "Pre-ship security pass with 10-category stack-aware checklist, accepted-risk rationale, and sign-off gating on criticals and highs.",
+      "version": "1.0.0",
+      "source": "./skills/security-audit",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "sprint-planner",
+      "description": "Converts backlogs into realistic solo-dev sprints with capacity math, velocity tracking, and launch countdown.",
+      "version": "1.0.0",
+      "source": "./skills/sprint-planner",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "tech-debt-register",
+      "description": "Logs, categorizes, and prioritizes tech debt across 9 categories with impact/effort/urgency scoring and pay-down recommendations.",
+      "version": "1.0.0",
+      "source": "./skills/tech-debt-register",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "testing-strategy",
+      "description": "Generates right-sized, stack-aware testing strategies with effort splits, CI gates, and review cadence.",
+      "version": "1.0.0",
+      "source": "./skills/testing-strategy",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "launch-readiness",
+      "description": "Pre-ship gate with 9-category tailored checklist gated on blocker resolution. Dynamically tailors by project type and business model.",
+      "version": "1.0.0",
+      "source": "./skills/launch-readiness",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "auto-docs",
+      "description": "Generates and maintains project documentation (README, SETUP, ARCHITECTURE, CHANGELOG) from profile and sibling sidecars. Preserved regions survive regeneration.",
+      "version": "1.0.0",
+      "source": "./skills/auto-docs",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "design-loop",
+      "description": "Iterative UI/UX design feedback loop for frontend development with screenshot-driven review cycles.",
+      "version": "1.0.0",
+      "source": "./skills/design-loop",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "feature-enhance",
+      "description": "Scans a codebase, inventories its stack, identifies incomplete work, and uses web research to surface prioritized feature enhancements from comparable products.",
+      "version": "1.0.0",
+      "source": "./skills/feature-enhance",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "market-feasibility",
+      "description": "Takes a software product idea and produces a comprehensive feasibility study covering technical, economic, legal, operational, scheduling, and market viability — plus full pricing and go-to-market strategy.",
+      "version": "1.1.0",
+      "source": "./plugins/market-feasibility",
+      "author": { "name": "Frank Robinson" }
+    },
+    {
+      "name": "software-valuation",
+      "description": "Analyzes software products and generates comprehensive pricing, monetization, and go-to-market strategy reports.",
+      "version": "1.0.0",
+      "source": "./plugins/software-valuation",
+      "author": { "name": "Frank Robinson" }
+    }
+  ]
+}

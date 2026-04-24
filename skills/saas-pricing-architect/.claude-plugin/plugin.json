@@ -1,0 +1,9 @@
+{
+  "name": "saas-pricing-architect",
+  "version": "1.0.0",
+  "description": "Designs versioned SaaS pricing with tiers, value metrics, competitive anchoring, and Stripe wiring hints.",
+  "author": { "name": "Frank Robinson" },
+  "license": "MIT",
+  "keywords": ["pricing", "saas", "tiers", "monetization", "stripe"],
+  "skills": "."
+}
