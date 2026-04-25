@@ -1,0 +1,13 @@
+{
+  "name": "deploy-readiness",
+  "version": "1.0.0",
+  "description": "Scans a codebase for local-to-cloud migration blockers \u2014 hardcoded paths, LAN URLs, dev-only bypasses, missing deploy configs \u2014 and produces a scored readiness report.",
+  "author": {
+    "name": "Frank Robinson"
+  },
+  "license": "MIT",
+  "keywords": [
+    "deploy-readiness"
+  ],
+  "skills": "."
+}

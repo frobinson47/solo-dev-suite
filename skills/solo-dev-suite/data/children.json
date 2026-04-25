@@ -45,6 +45,29 @@
       "output_location": "profile.docs_model + <repo>/README.md + <repo>/docs/SETUP.md + <repo>/docs/ARCHITECTURE.md + <repo>/docs/CHANGELOG.md"
     },
     {
+      "name": "deploy-readiness",
+      "version": "1.0.0",
+      "status": "active",
+      "phases": [
+        "ship"
+      ],
+      "depends_on": [],
+      "enhances": [
+        "launch-readiness"
+      ],
+      "description": "Scans a codebase for local-to-cloud migration blockers -- hardcoded paths, LAN URLs, dev-only bypasses, missing deploy configs -- and produces a scored readiness report with file:line locations.",
+      "triggers": [
+        "deploy readiness",
+        "ready to deploy",
+        "can I host this",
+        "cloud migration check",
+        "scan for local stuff",
+        "deployment blockers",
+        "local to cloud"
+      ],
+      "output_location": "profile.deploy_readiness_model + profiles/<slug>.deploy-readiness.json + <repo>/docs/DEPLOY_READINESS.md"
+    },
+    {
       "name": "integration-mapper",
       "version": "1.0.0",
       "status": "active",

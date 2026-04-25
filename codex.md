@@ -26,6 +26,7 @@ You have access to the Solo Dev Suite, a collection of lifecycle skills for solo
 | Documentation, README, changelog | `skills/auto-docs/scripts/docs_tool.py` |
 | Project status across all skills | `skills/solo-dev-suite/scripts/dashboard.py` |
 | Compare multiple projects | `skills/solo-dev-suite/scripts/portfolio.py` |
+| Deploy readiness scan | `skills/deploy-readiness/scripts/deploy_readiness_tool.py` |
 | Export to issue trackers | `skills/solo-dev-suite/scripts/export_issues.py` |
 
 ## Conventions

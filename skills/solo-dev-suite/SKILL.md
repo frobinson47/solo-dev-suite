@@ -6,7 +6,7 @@ description: Master orchestrator for the Solo Dev Suite — a collection of life
 
 # Solo Dev Suite — Master Orchestrator
 
-The Solo Dev Suite is a set of **10 child skills** that cover the full solo-developer lifecycle from locked scope through long-term sustainment. All children share a **central Project Profile registry** so you never have to re-establish context across skill invocations.
+The Solo Dev Suite is a set of **11 child skills** that cover the full solo-developer lifecycle from locked scope through long-term sustainment. All children share a **central Project Profile registry** so you never have to re-establish context across skill invocations.
 
 ## When to use this skill
 
@@ -55,6 +55,7 @@ When triggered, figure out which of these the user wants:
 - **F. Generate a handoff document** → go to §4c
 - **G. Cross-skill dashboard** → go to §4d
 - **H. Export to issue tracker** → go to §4e
+- **I. Deploy readiness scan** → go to §4f
 
 If unclear, ask briefly. Don't run a questionnaire if the user just wants to see a list.
 
@@ -209,6 +210,30 @@ python "<SKILL_DIR>/scripts/export_issues.py" status <slug>
 ```
 
 Idempotent: tracks exported items in `<slug>.exported.json` to prevent duplicates. Auto-creates labels on the target repo if they don't exist.
+
+### 4f. Deploy readiness scan
+
+Scan a codebase for local-to-cloud migration blockers:
+
+```bash
+# Scan (uses profile.repository_path)
+python "<SKILLS_ROOT>/deploy-readiness/scripts/deploy_readiness_tool.py" scan <slug>
+
+# Scan with path override
+python "<SKILLS_ROOT>/deploy-readiness/scripts/deploy_readiness_tool.py" scan <slug> --path /path/to/repo
+
+# View findings
+python "<SKILLS_ROOT>/deploy-readiness/scripts/deploy_readiness_tool.py" show <slug>
+python "<SKILLS_ROOT>/deploy-readiness/scripts/deploy_readiness_tool.py" show <slug> --category hardcoded-urls
+
+# Resolve a finding
+python "<SKILLS_ROOT>/deploy-readiness/scripts/deploy_readiness_tool.py" resolve <slug> --item URL01
+
+# Render DEPLOY_READINESS.md
+python "<SKILLS_ROOT>/deploy-readiness/scripts/deploy_readiness_tool.py" render <slug>
+```
+
+Scans 8 categories: hardcoded URLs, hardcoded paths, dev bypasses, missing deploy config, DB config, CORS origins, file storage, env secrets. Produces a scored readiness report (0-100) with concrete file:line findings.
 
 ### 5. Route to child skill
 

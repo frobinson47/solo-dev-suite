@@ -83,6 +83,11 @@
 # Command: python skills/testing-strategy/scripts/testing_tool.py
 # Phases: build
 
+# Rule: When the user asks about deploying, cloud migration, or local-to-cloud
+# Action: Use the Deploy Readiness scanner
+# Command: python skills/deploy-readiness/scripts/deploy_readiness_tool.py
+# Phases: ship
+
 # Rule: When the user asks about security, vulnerabilities, or pre-ship security
 # Action: Use the Security Audit
 # Command: python skills/security-audit/scripts/security_tool.py

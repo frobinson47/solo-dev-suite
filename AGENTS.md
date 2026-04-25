@@ -45,10 +45,12 @@ solo-dev-suite/
 │   │   │   ├── <slug>.testing.json          # Testing strategy output
 │   │   │   ├── <slug>.adr.json              # ADR generator output
 │   │   │   ├── <slug>.docs.json             # Auto-docs output
-│   │   │   └── <slug>.exported.json         # Issue export tracking
+│   │   │   ├── <slug>.exported.json         # Issue export tracking
+│   │   │   └── <slug>.deploy-readiness.json # Deploy readiness scan output
 │   │   ├── scripts/             # Orchestrator scripts
 │   │   └── data/
 │   │       └── children.json    # Skill registry (phases, deps, triggers)
+│   ├── deploy-readiness/         # Codebase scanner for cloud migration blockers
 │   ├── adr-generator/           # Architecture Decision Records
 │   ├── auto-docs/               # Documentation generator
 │   ├── integration-mapper/      # Third-party service mapping
@@ -124,6 +126,7 @@ Every script in the suite follows these patterns:
 
 | Skill | Script | Key Commands |
 |-------|--------|--------------|
+| deploy-readiness | `deploy_readiness_tool.py` | `scan`, `show`, `resolve`, `render`, `delete` |
 | adr-generator | `adr_tool.py` | `new`, `list`, `show`, `update`, `render` |
 | auto-docs | `docs_tool.py` | `init`, `generate`, `show` |
 | integration-mapper | `integration_tool.py` | `init`, `add`, `show`, `render` |

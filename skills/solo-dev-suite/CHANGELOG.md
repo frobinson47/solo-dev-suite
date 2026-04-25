@@ -11,6 +11,7 @@ This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 - **CI/CD workflow** (`.github/workflows/validate-skills.yml`): GitHub Actions validation for Python syntax, SKILL.md frontmatter, plugin.json, children.json, and marketplace.json on push/PR
 - **Skill creator** (`create_skill.py`): meta-skill that scaffolds a new child skill with SKILL.md, plugin.json, tool script, and auto-registration in children.json + marketplace.json
 - **Issue tracker export** (`export_issues.py`): pushes scope items, tech debt, security findings, and sprint items to GitHub/Forgejo as labeled issues with idempotent tracking
+- **Deploy readiness scanner** (`deploy-readiness` skill): scans codebases for local-to-cloud migration blockers (hardcoded URLs, paths, dev bypasses, missing deploy config, DB config, CORS, file storage, env secrets) with scored readiness report and file:line findings
 
 ## [1.1.0] - 2026-04-24
 
