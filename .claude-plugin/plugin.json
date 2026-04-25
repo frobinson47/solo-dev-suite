@@ -1,7 +1,7 @@
 {
   "name": "solo-dev-suite",
   "version": "1.1.0",
-  "description": "13 Claude Code skills and 2 plugins that cover the entire solo developer lifecycle — from idea validation through launch and beyond. Shared project profiles, cross-skill data flows, and a master orchestrator that routes you to the right skill at the right time.",
+  "description": "13 Claude Code skills and 2 plugins that cover the entire solo developer lifecycle \u00e2\u20ac\u201d from idea validation through launch and beyond. Shared project profiles, cross-skill data flows, and a master orchestrator that routes you to the right skill at the right time.",
   "author": {
     "name": "Frank Robinson"
   },
@@ -24,6 +24,5 @@
     "feasibility",
     "valuation",
     "orchestrator"
-  ],
-  "skills": "skills/"
+  ]
 }

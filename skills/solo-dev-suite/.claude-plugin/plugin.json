@@ -1,9 +1,15 @@
 {
   "name": "solo-dev-suite",
   "version": "1.1.0",
-  "description": "Master orchestrator — routes requests to the right child skill based on your project phase and intent. Manages shared project profiles across all skills.",
-  "author": { "name": "Frank Robinson" },
+  "description": "Master orchestrator \u00e2\u20ac\u201d routes requests to the right child skill based on your project phase and intent. Manages shared project profiles across all skills.",
+  "author": {
+    "name": "Frank Robinson"
+  },
   "license": "MIT",
-  "keywords": ["orchestrator", "solo-developer", "lifecycle", "project-management"],
-  "skills": "."
+  "keywords": [
+    "orchestrator",
+    "solo-developer",
+    "lifecycle",
+    "project-management"
+  ]
 }

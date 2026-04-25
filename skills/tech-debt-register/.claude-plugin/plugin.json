@@ -2,8 +2,14 @@
   "name": "tech-debt-register",
   "version": "1.0.0",
   "description": "Logs, categorizes, and prioritizes tech debt across 9 categories with impact/effort/urgency scoring and pay-down recommendations.",
-  "author": { "name": "Frank Robinson" },
+  "author": {
+    "name": "Frank Robinson"
+  },
   "license": "MIT",
-  "keywords": ["tech-debt", "refactoring", "code-quality", "maintenance"],
-  "skills": "."
+  "keywords": [
+    "tech-debt",
+    "refactoring",
+    "code-quality",
+    "maintenance"
+  ]
 }

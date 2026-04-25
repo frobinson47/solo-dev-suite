@@ -2,8 +2,15 @@
   "name": "sprint-planner",
   "version": "1.0.0",
   "description": "Converts backlogs into realistic solo-dev sprints with capacity math, velocity tracking, and launch countdown.",
-  "author": { "name": "Frank Robinson" },
+  "author": {
+    "name": "Frank Robinson"
+  },
   "license": "MIT",
-  "keywords": ["sprint", "planning", "velocity", "backlog", "agile"],
-  "skills": "."
+  "keywords": [
+    "sprint",
+    "planning",
+    "velocity",
+    "backlog",
+    "agile"
+  ]
 }

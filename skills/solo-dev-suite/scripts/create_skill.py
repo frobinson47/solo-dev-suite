@@ -251,8 +251,7 @@ def _generate_plugin_json(name: str, description: str, author: str) -> str:
         "description": description,
         "author": {"name": author},
         "license": "MIT",
-        "keywords": [name],
-        "skills": "."
+        "keywords": [name]
     }, indent=2) + "\n"
 
 

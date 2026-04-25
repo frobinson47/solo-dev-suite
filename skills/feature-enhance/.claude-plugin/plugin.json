@@ -2,8 +2,14 @@
   "name": "feature-enhance",
   "version": "1.0.0",
   "description": "Scans a codebase, inventories its stack, identifies incomplete work, and uses web research to surface prioritized feature enhancements from comparable products.",
-  "author": { "name": "Frank Robinson" },
+  "author": {
+    "name": "Frank Robinson"
+  },
   "license": "MIT",
-  "keywords": ["features", "competitive-analysis", "enhancement", "research"],
-  "skills": "."
+  "keywords": [
+    "features",
+    "competitive-analysis",
+    "enhancement",
+    "research"
+  ]
 }

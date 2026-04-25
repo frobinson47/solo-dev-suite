@@ -2,8 +2,15 @@
   "name": "security-audit",
   "version": "1.0.0",
   "description": "Pre-ship security pass with 10-category stack-aware checklist, accepted-risk rationale, and sign-off gating on criticals and highs.",
-  "author": { "name": "Frank Robinson" },
+  "author": {
+    "name": "Frank Robinson"
+  },
   "license": "MIT",
-  "keywords": ["security", "audit", "owasp", "vulnerabilities", "pre-ship"],
-  "skills": "."
+  "keywords": [
+    "security",
+    "audit",
+    "owasp",
+    "vulnerabilities",
+    "pre-ship"
+  ]
 }

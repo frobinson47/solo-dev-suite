@@ -2,8 +2,14 @@
   "name": "auto-docs",
   "version": "1.0.0",
   "description": "Generates and maintains project documentation (README, SETUP, ARCHITECTURE, CHANGELOG) from profile and sibling sidecars. Preserved regions survive regeneration.",
-  "author": { "name": "Frank Robinson" },
+  "author": {
+    "name": "Frank Robinson"
+  },
   "license": "MIT",
-  "keywords": ["documentation", "readme", "changelog", "auto-generate"],
-  "skills": "."
+  "keywords": [
+    "documentation",
+    "readme",
+    "changelog",
+    "auto-generate"
+  ]
 }

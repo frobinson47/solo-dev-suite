@@ -2,8 +2,14 @@
   "name": "integration-mapper",
   "version": "1.0.0",
   "description": "Maps third-party service dependencies with 3D risk rating (blast radius, pricing exposure, deprecation risk) and fallback plans.",
-  "author": { "name": "Frank Robinson" },
+  "author": {
+    "name": "Frank Robinson"
+  },
   "license": "MIT",
-  "keywords": ["dependencies", "integrations", "risk", "third-party"],
-  "skills": "."
+  "keywords": [
+    "dependencies",
+    "integrations",
+    "risk",
+    "third-party"
+  ]
 }
