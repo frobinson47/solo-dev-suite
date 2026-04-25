@@ -1,6 +1,6 @@
 {
-  "name": "Solo Dev Suite",
-  "description": "Complete solo developer lifecycle toolkit \u2014 13 skills and 2 plugins covering idea validation, scoping, architecture, building, shipping, growing, and sustaining software products.",
+  "name": "solo-dev-suite",
+  "description": "Complete solo developer lifecycle toolkit -- 14 skills and 2 plugins covering idea validation, scoping, architecture, building, shipping, growing, and sustaining software products.",
   "owner": {
     "name": "Frank Robinson"
   },
