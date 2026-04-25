@@ -249,6 +249,19 @@ def _write_profile(slug: str, profile: Dict[str, Any]) -> None:
     tmp.replace(path)  # atomic on POSIX and Windows
 
 
+def _fix_windows_paths(raw: str) -> str:
+    r"""Fix unescaped Windows backslashes in JSON strings.
+
+    When Claude pipes JSON with paths like "D:\laragon\www\project",
+    the single backslashes create invalid escape sequences (\l, \w, etc.).
+    This replaces backslashes followed by a non-JSON-escape char with
+    forward slashes, which Python and all suite scripts handle fine.
+    """
+    # Replace \ followed by a char that is NOT a valid JSON escape
+    # Valid JSON escapes after \: \ " / b f n r t u
+    return re.sub(r'\\([^\\"/bfnrtu])', r'/\1', raw)
+
+
 def _read_stdin_json() -> Dict[str, Any]:
     """Read a JSON object from stdin. Exits with a clear message on failure."""
     raw = sys.stdin.read()
@@ -257,9 +270,13 @@ def _read_stdin_json() -> Dict[str, Any]:
         sys.exit(5)
     try:
         obj = json.loads(raw)
-    except json.JSONDecodeError as e:
-        _err(f"stdin is not valid JSON: {e}")
-        sys.exit(5)
+    except json.JSONDecodeError:
+        # Retry with Windows path fix before failing
+        try:
+            obj = json.loads(_fix_windows_paths(raw))
+        except json.JSONDecodeError as e:
+            _err(f"stdin is not valid JSON: {e}")
+            sys.exit(5)
     if not isinstance(obj, dict):
         _err(f"stdin JSON must be an object, got {type(obj).__name__}.")
         sys.exit(5)
